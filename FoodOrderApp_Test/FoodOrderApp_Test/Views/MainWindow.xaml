@@ -4,28 +4,37 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FoodOrderApp_Test.Views"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:uc="clr-namespace:FoodOrderApp_Test.Views.UserControls"
         mc:Ignorable="d"
+        x:Name="mainWindowView"
         DataContext="{StaticResource MainVM}"
         Title="LoginWindow" Height="820" Width="1420"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
-        TextOptions.TextFormattingMode="Ideal" 
-        TextOptions.TextRenderingMode="Auto"        
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
         Background="{x:Null}"
-        FontFamily="{DynamicResource MaterialDesignFont}" 
-        Foreground="{x:Null}" 
-        AllowsTransparency="True" 
-        WindowStyle="None" 
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Foreground="{x:Null}"
+        AllowsTransparency="True"
+        WindowStyle="None"
         WindowStartupLocation="CenterScreen">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadCommand}"
+                                           CommandParameter="{Binding ElementName=controlBar}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <uc:ControlBarUC Grid.Row="0"></uc:ControlBarUC>
+        <uc:ControlBarUC x:Name="controlBar" Grid.Row="0">
+        </uc:ControlBarUC>
     </Grid>
 </Window>
