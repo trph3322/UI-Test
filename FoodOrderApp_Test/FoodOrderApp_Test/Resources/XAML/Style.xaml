@@ -1,0 +1,15 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:FoodOrderApp_Test.Resources.XAML">
+    <!-- Border Round -->
+    <Style x:Key="roundedCorner" TargetType="Border">
+        <Setter Property="BorderThickness" Value="10"></Setter>
+        <Setter Property="BorderBrush" Value="Transparent"></Setter>
+        <Setter Property="Background" Value="Transparent"></Setter>
+        <Setter Property="CornerRadius" Value="10"></Setter>
+    </Style>
+    <DropShadowEffect x:Key="dropShadow" ShadowDepth="2" BlurRadius="15" Opacity="0.6" Direction="-75"></DropShadowEffect>
+    
+    
+    
+</ResourceDictionary>
