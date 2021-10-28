@@ -1,8 +1,8 @@
 ﻿<UserControl x:Class="FoodOrderApp_Test.Views.UserControls.ControlBarUC"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:FoodOrderApp_Test.Views.UserControls"
              mc:Ignorable="d"
              x:Name="controlBarUC"
@@ -10,11 +10,9 @@
     <UserControl.Resources>
         <ControlTemplate x:Key="templateBtn" TargetType="{x:Type Button}">
             <Grid>
-                <Ellipse Fill="{TemplateBinding Background}"/>
-                <ContentPresenter Content="{TemplateBinding Content}" 
-                                  HorizontalAlignment="Center" VerticalAlignment="Center"
-                                  
-                                  />
+                <Ellipse Fill="{TemplateBinding Background}" />
+                <ContentPresenter Content="{TemplateBinding Content}"
+                                  HorizontalAlignment="Center" VerticalAlignment="Center" />
             </Grid>
         </ControlTemplate>
         <Style x:Key="customBtn" TargetType="Button">
@@ -25,7 +23,7 @@
             <Setter Property="HorizontalAlignment" Value="Right"></Setter>
         </Style>
     </UserControl.Resources>
-    
+
     <Grid Height="auto" Width="auto" VerticalAlignment="Top">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"></ColumnDefinition>
@@ -33,8 +31,11 @@
             <ColumnDefinition Width="1*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Grid x:Name="centerBar" Grid.Column="1" Background="Orange" Visibility="Hidden"></Grid>
-        
+        <Grid Grid.Column="1">
+            <Border x:Name="centerBar" Background="Orange" Visibility="Hidden">
+            </Border>
+        </Grid>
+
         <Grid Grid.Column="2">
             <Button Style="{StaticResource customBtn}"
                 Template="{StaticResource templateBtn}"
@@ -49,9 +50,7 @@
                 Content="-"
                 Margin="0 5 30 0"
                 FontSize="20">
-
             </Button>
         </Grid>
-
     </Grid>
 </UserControl>
