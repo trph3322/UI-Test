@@ -7,7 +7,6 @@
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:uc="clr-namespace:FoodOrderApp_Test.Views.UserControls"
         mc:Ignorable="d"
-        x:Name="mainWindowView"
         DataContext="{StaticResource MainVM}"
         Title="LoginWindow" Height="820" Width="1420"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -25,7 +24,7 @@
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding LoadCommand}"
-                                           CommandParameter="{Binding ElementName=controlBar}" />
+                                   CommandParameter="{Binding ElementName=controlBar}" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <Grid>

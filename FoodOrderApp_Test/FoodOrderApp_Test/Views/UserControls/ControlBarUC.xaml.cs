@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FoodOrderApp_Test.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,11 @@ namespace FoodOrderApp_Test.Views.UserControls
     /// </summary>
     public partial class ControlBarUC : UserControl
     {
+        public ControlBarViewModel viewModel { get; set; }
         public ControlBarUC()
         {
             InitializeComponent();
+            this.DataContext = viewModel = new ControlBarViewModel();
         }
     }
 }
