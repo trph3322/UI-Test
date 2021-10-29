@@ -8,8 +8,28 @@
         <Setter Property="Background" Value="Transparent"></Setter>
         <Setter Property="CornerRadius" Value="10"></Setter>
     </Style>
-    <DropShadowEffect x:Key="dropShadow" ShadowDepth="2" BlurRadius="15" Opacity="0.6" Direction="-75"></DropShadowEffect>
-    
-    
-    
+    <DropShadowEffect x:Key="dropShadow" ShadowDepth="2" BlurRadius="20" Opacity="0.6" Direction="-75"></DropShadowEffect>
+
+    <Style x:Key="forgotPasswordBtn" TargetType="Button">
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border
+                        
+                        Background="{TemplateBinding Background}">
+                        <ContentPresenter x:Name="content" Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="content" Property="TextBlock.Foreground" Value="Black"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+
 </ResourceDictionary>
