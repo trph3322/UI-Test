@@ -21,16 +21,16 @@
         WindowStyle="None" 
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
 
-    <Grid>
-        <Grid Margin="10">
+    <Border Style="{StaticResource roundedCorner}" Effect="{StaticResource dropShadow}">
+        <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             
             <!--Image-->
-            <Grid Grid.Column="0" Margin="0 0 -10 0">
-                <Border CornerRadius="10 0 0 10" BorderThickness="0 0 10 0" Effect="{StaticResource dropShadow}">
+            <Grid Grid.Column="0">
+                <Border CornerRadius="10 0 0 10">
                     <Border.Background>
                         <ImageBrush ImageSource="/Resources/Images/food.jpg" Stretch="UniformToFill"/>
                     </Border.Background>
@@ -39,111 +39,21 @@
             
             <!--Login-->
             <Grid Grid.Column="1">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="20"></RowDefinition>
-                        <RowDefinition></RowDefinition>
-                    </Grid.RowDefinitions>
+                <Border CornerRadius="0 10 10 0" Background="#e6e6e6">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
 
-                    <!--Control Bar-->
-                    <uc:ControlBarUC Grid.Row="0"></uc:ControlBarUC>
+                        <!--Control Bar-->
+                        <uc:ControlBarUC Grid.Row="0"></uc:ControlBarUC>
 
-                    <!--Login Grid-->
-                    <Grid Grid.Row="1" Margin="150 100">
-                        <TextBlock Text="Đăng nhập"
-                                    HorizontalAlignment="Center"
-                                    Margin="0 40 0 0"
-                                    FontSize="40"
-                                    FontWeight="Bold"
-                                    Foreground="#F57C00">
-                        </TextBlock>
-
-                        <Grid Margin="60 140 60 300">
-                            <Grid.RowDefinitions>
-                                <RowDefinition></RowDefinition>
-                                <RowDefinition></RowDefinition>
-                            </Grid.RowDefinitions>
-
-                            <Grid Grid.Row="0">
-                                <materialDesign:PackIcon 
-                                        Kind="Account"
-                                        Foreground="Gray"
-                                        Width="30"
-                                        Height="30"
-                                        VerticalAlignment="Bottom"
-                                        HorizontalAlignment="Left"
-                                        Margin="0 0 0 -5"/>
-                                <TextBox
-                                        materialDesign:HintAssist.Hint="Floating Hint"
-                                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                                        Foreground="LightGray"
-                                        Width="240"
-                                        VerticalAlignment="Bottom" 
-                                        HorizontalAlignment="Right">
-                                </TextBox>
-                            </Grid>
-
-                            <Grid Grid.Row="1">
-                                <materialDesign:PackIcon 
-                                        Kind="Lock"
-                                        Foreground="Gray"
-                                        Width="30"
-                                        Height="30"
-                                        VerticalAlignment="Bottom"
-                                        HorizontalAlignment="Left"
-                                        Margin="0 0 0 -3"/>
-                                <PasswordBox
-                                        x:Name="FloatingPasswordBox"
-                                        materialDesign:HintAssist.Hint="Floating Password"
-                                        materialDesign:HintAssist.Foreground="Green"
-                                        materialDesign:TextFieldAssist.UnderlineBrush="Green"
-                                        Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" 
-                                        Width="240"
-                                        VerticalAlignment="Bottom" 
-                                        HorizontalAlignment="Right"/>
-                            </Grid>
-                        </Grid>
-
-                        <Button
-                            OverridesDefaultStyle="True"
-                            Style="{StaticResource forgotPasswordBtn}"
-                            Content="Quên mật khẩu"
-                            FontSize="14"
-                            Foreground="Gray"
-                            VerticalAlignment="Center"
-                            HorizontalAlignment="Left"
-                            Height="22"
-                            Width="100"
-                            Padding="0"
-                            Margin="60 40 0 0"
-                            Background="Transparent"
-                            Cursor="Hand">
-                        </Button>
-
-                        <!--Background for Form-->
-                        <Rectangle 
-                            Fill="White"
-                            HorizontalAlignment="Stretch"
-                            VerticalAlignment="Stretch"
-                            RadiusY="20" 
-                            RadiusX="20" 
-                            Panel.ZIndex="-1"
-                            Effect="{StaticResource dropShadow}">
-                        </Rectangle>
+                        <!--Login Grid-->
                     </Grid>
-                </Grid>
+                </Border>
             </Grid>
         </Grid>
-        <Rectangle 
-            Fill="#e6e6e6"
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch"
-            RadiusY="10" 
-            RadiusX="10" 
-            Panel.ZIndex="-2"
-            Effect="{StaticResource dropShadow}"
-            Margin="10">
-        </Rectangle>
-    </Grid>
+    </Border>
     
 </Window>

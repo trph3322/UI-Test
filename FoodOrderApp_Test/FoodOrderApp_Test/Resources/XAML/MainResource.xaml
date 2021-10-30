@@ -4,5 +4,5 @@
                     xmlns:viewmodels="clr-namespace:FoodOrderApp_Test.ViewModels">
     <viewmodels:LoginViewModel x:Key="LoginVM"></viewmodels:LoginViewModel>
     <viewmodels:MainViewmodel x:Key="MainVM"></viewmodels:MainViewmodel>
-
+    <viewmodels:SignUpViewModel x:Key="SignUpVM"></viewmodels:SignUpViewModel>
 </ResourceDictionary>
