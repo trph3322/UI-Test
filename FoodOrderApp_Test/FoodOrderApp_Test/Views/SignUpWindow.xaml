@@ -23,7 +23,7 @@
         Foreground="{x:Null}"
         AllowsTransparency="True"
         WindowStyle="None"
-        WindowStartupLocation="CenterScreen" 
+        WindowStartupLocation="CenterScreen"
         ResizeMode="CanMinimize">
     <Grid>
         <Grid Margin="10">
@@ -150,6 +150,7 @@
                             Content="Đăng ký"
                             Width="270"
                             Height="40"
+                                Width="180"
                             Margin="0 20"
                             FontSize="20"
                             Foreground="White">
@@ -158,13 +159,13 @@
                 </Grid>
             </StackPanel>
         </Grid>
-        
-        <Rectangle 
+
+        <Rectangle
             Fill="White"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"
-            RadiusY="10" 
-            RadiusX="10" 
+            RadiusY="10"
+            RadiusX="10"
             Panel.ZIndex="-2"
             Effect="{StaticResource dropShadow}"
             Margin="10">
