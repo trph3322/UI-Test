@@ -14,12 +14,12 @@ namespace FoodOrderApp_Test.ViewModels
 
         public MainViewmodel()
         {
-            LoadCommand = new RelayCommand<ControlBarUC>(parameter => true, parameter => load(parameter));
+            LoadCommand = new RelayCommand<ControlBarUC>(parameter => true, parameter => Loaded(parameter));
         }
 
-        private void load(ControlBarUC mainWindow)
+        private void Loaded(ControlBarUC cb)
         {
-            mainWindow.centerBar.Visibility = System.Windows.Visibility.Visible;
+            cb.centerBar.Visibility = System.Windows.Visibility.Visible;
         }
     }
 }

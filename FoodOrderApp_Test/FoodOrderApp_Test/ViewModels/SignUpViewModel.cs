@@ -5,6 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Windows.Media;
 using FoodOrderApp_Test.Views;
 
 namespace FoodOrderApp_Test.ViewModels
@@ -38,6 +39,8 @@ namespace FoodOrderApp_Test.ViewModels
                 parameter.txtUsername.Focus();
                 return;
             }
+
+            
         }
     }
 }

@@ -3,4 +3,8 @@
                     xmlns:local="clr-namespace:FoodOrderApp_Test.Resources.XAML">
 
     <SolidColorBrush x:Key="Gray1" Color="DimGray"></SolidColorBrush>
+    <SolidColorBrush x:Key="DarkGreen" Color="#2e7d3e"></SolidColorBrush>
+    <SolidColorBrush x:Key="LightGreen" Color="#1ed760"></SolidColorBrush>
+    
+    <SolidColorBrush x:Key="DynamicHover"></SolidColorBrush>
 </ResourceDictionary>
