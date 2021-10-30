@@ -55,7 +55,7 @@
                                     Margin="0 40 0 0"
                                     FontSize="40"
                                     FontWeight="Bold"
-                                    Foreground="#F57C00">
+                                    Foreground="{StaticResource Orange1}">
                         </TextBlock>
 
                         <Grid Margin="60 140 60 300">

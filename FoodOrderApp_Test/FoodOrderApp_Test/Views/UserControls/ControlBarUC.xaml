@@ -42,7 +42,7 @@
                 </i:EventTrigger>
             </i:Interaction.Triggers>
             <Grid x:Name="centerBar"  Visibility="Visible" Height="17" VerticalAlignment="Top">
-                <Border Background="#ffb84d"
+                <Border Background="{StaticResource Orange3}"
                         BorderThickness="0"
                         CornerRadius="0 0 5 5"></Border>
             </Grid>

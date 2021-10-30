@@ -34,7 +34,7 @@
                 Content="Đăng ký"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Top"
-                Foreground="#F57C00"
+                Foreground="{StaticResource Orange1}"
                 Padding="0"
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
