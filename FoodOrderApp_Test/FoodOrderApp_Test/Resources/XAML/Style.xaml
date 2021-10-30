@@ -12,11 +12,11 @@
     <DropShadowEffect x:Key="dropShadow" ShadowDepth="2" BlurRadius="15" Opacity="0.6" Direction="-75"></DropShadowEffect>
 
     <Style x:Key="forgotPasswordBtn" TargetType="Button">
-        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border 
+                    <Border
                         Background="{TemplateBinding Background}">
                         <ContentPresenter x:Name="content" Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Border>
@@ -31,10 +31,10 @@
     </Style>
 
     <Style x:Key="GreenBtn" TargetType="{x:Type Button}" BasedOn="{StaticResource MaterialDesignRaisedDarkButton}">
-        <Setter Property="Background" Value="{DynamicResource DarkGreen}"/>
-        <Setter Property="Foreground" Value="White"/>
-        <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="materialDesign:ButtonAssist.CornerRadius" Value="20"/>
+        <Setter Property="Background" Value="{DynamicResource DarkGreen}" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="materialDesign:ButtonAssist.CornerRadius" Value="20" />
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="{DynamicResource LightGreen}"></Setter>
@@ -43,11 +43,11 @@
     </Style>
 
     <Style x:Key="GrayBtn" TargetType="{x:Type Button}" BasedOn="{StaticResource MaterialDesignRaisedDarkButton}">
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Foreground" Value="Gray"/>
-        <Setter Property="BorderThickness" Value="2"/>
-        <Setter Property="BorderBrush" Value="Gray"/>
-        <Setter Property="materialDesign:ButtonAssist.CornerRadius" Value="20"/>
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="Gray" />
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="BorderBrush" Value="Gray" />
+        <Setter Property="materialDesign:ButtonAssist.CornerRadius" Value="20" />
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="Gray"></Setter>
@@ -56,6 +56,4 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-
-
 </ResourceDictionary>
