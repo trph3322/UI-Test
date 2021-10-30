@@ -67,7 +67,7 @@
                             <Grid Grid.Row="0">
                                 <materialDesign:PackIcon 
                                         Kind="Account"
-                                        Foreground="#616161"
+                                        Foreground="{StaticResource Gray}"
                                         Width="30"
                                         Height="30"
                                         VerticalAlignment="Bottom"
@@ -79,8 +79,8 @@
                                         Foreground="Black"
                                         FontSize="16"
                                         FontWeight="Medium"
-                                        materialDesign:HintAssist.Foreground="Black"
-                                        materialDesign:TextFieldAssist.UnderlineBrush="Black"
+                                        materialDesign:HintAssist.Foreground="{StaticResource Gray}"
+                                        materialDesign:TextFieldAssist.UnderlineBrush="{StaticResource Gray}"
                                         Width="230"
                                         VerticalAlignment="Bottom" 
                                         HorizontalAlignment="Right">
@@ -90,7 +90,7 @@
                             <Grid Grid.Row="1">
                                 <materialDesign:PackIcon 
                                         Kind="Lock"
-                                        Foreground="#616161"
+                                        Foreground="{StaticResource Gray}"
                                         Width="30"
                                         Height="30"
                                         VerticalAlignment="Bottom"
@@ -102,8 +102,8 @@
                                         Foreground="Black"
                                         FontSize="16"
                                         FontWeight="Medium"
-                                        materialDesign:HintAssist.Foreground="Black"
-                                        materialDesign:TextFieldAssist.UnderlineBrush="Black"
+                                        materialDesign:HintAssist.Foreground="{StaticResource Gray}"
+                                        materialDesign:TextFieldAssist.UnderlineBrush="{StaticResource Gray}"
                                         Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" 
                                         Width="230"
                                         VerticalAlignment="Bottom" 
@@ -115,7 +115,7 @@
                             Style="{StaticResource forgotPasswordBtn}"                            
                             Content="Quên mật khẩu"
                             FontSize="15"
-                            Foreground="#616161"
+                            Foreground="{StaticResource Gray}"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Left"
                             Height="22"
@@ -138,7 +138,7 @@
 
                         <TextBlock 
                             Text="Chưa có tài khoản?"
-                            Foreground="#616161"
+                            Foreground="{StaticResource Gray}"
                             FontSize="15"
                             VerticalAlignment="Bottom"
                             HorizontalAlignment="Center"

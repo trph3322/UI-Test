@@ -22,7 +22,7 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="content" Property="TextBlock.Foreground" Value="Orange"></Setter>
+                            <Setter TargetName="content" Property="TextBlock.Foreground" Value="{DynamicResource Orange2}"></Setter>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
