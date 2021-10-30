@@ -12,6 +12,7 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
                 <ResourceDictionary Source="/Resources/XAML/MainResource.xaml" />
                 <ResourceDictionary Source="/Resources/XAML/Style.xaml" />
+                <ResourceDictionary Source="/Resources/XAML/Color.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
