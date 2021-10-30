@@ -66,9 +66,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Validations\EmailValidation.cs" />
     <Compile Include="Validations\TextBoxValidation.cs" />
-    <Compile Include="Validations\UserNameValidation.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>

@@ -11,8 +11,8 @@
         xmlns:vd="clr-namespace:FoodOrderApp_Test.Validations"
         mc:Ignorable="d"
         DataContext="{StaticResource SignUpVM}"
-        Height="630"
-        Width="390"
+        Height="640"
+        Width="440"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
@@ -23,88 +23,93 @@
         Foreground="{x:Null}"
         AllowsTransparency="True"
         WindowStyle="None"
-        WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanMinimize">
     <Grid>
-
-        <Border Style="{StaticResource roundedCorner}" Effect="{StaticResource dropShadow}" Background="#e6e6e6">
-            <Grid>
-                <uc:ControlBarUC>
-                </uc:ControlBarUC>
-                <StackPanel>
-                    <Label
+        <Grid Margin="10">
+            <uc:ControlBarUC></uc:ControlBarUC>
+            <StackPanel>
+                <Label
                 x:Name="lblSignUp"
                 Content="Đăng ký"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Top"
+                Foreground="#F57C00"
                 Padding="0"
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
-                FontSize="32"
+                FontSize="40"
                 FontWeight="Bold"
-                Margin="0,30,0,0" />
-                    <Grid Margin="10 20" VerticalAlignment="Stretch" HorizontalAlignment="Center">
-                        <StackPanel Orientation="Vertical" VerticalAlignment="Stretch">
-                            <StackPanel Orientation="Horizontal" Margin="0 20">
-                                <materialDesign:PackIcon
+                Margin="0,40,0,0" />
+                <Grid Margin="10 20" VerticalAlignment="Stretch" HorizontalAlignment="Center">
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Stretch">
+                        <StackPanel Orientation="Horizontal" Margin="0 20">
+                            <materialDesign:PackIcon
                                     Kind="Gmail"
                                     Width="30"
                                     Height="30"
                                     Foreground="Black"
                                     VerticalAlignment="Center"
-                                    Margin="10,10,10,0" />
-                                <TextBox
-                                    x:Name="txtEmail"
+                                    Margin="10,10,20,-18" />
+                            <TextBox
+
                                   materialDesign:HintAssist.Hint="Email"
                                   Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                   VerticalAlignment="Center"
                                     Foreground="Black"
-                                    Width="220"
+                                    Width="250"
                                     Height="50"
-                                    FontSize="16"
+                                    FontSize="18"
                                     FontWeight="Medium"
                                     Padding="2,0,0,0">
-                                    <i:Interaction.Triggers>
-                                        <i:EventTrigger EventName="LostFocus">
-                                        </i:EventTrigger>
-                                    </i:Interaction.Triggers>
-                                </TextBox>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal" Margin="0 20">
-                                <materialDesign:PackIcon
+                                <TextBox.Text>
+                                    <Binding Path="Mail" UpdateSourceTrigger="PropertyChanged">
+                                        <Binding.ValidationRules>
+                                            <vd:TextBoxValidation ErrorMessage="Chỉ sử dụng các chữ cái (a -> z, A->Z) hoặc chữ số (0 -> 9)"
+                                                      ErrorMessageNull="Vui lòng nhập tên đăng nhập!" />
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </TextBox.Text>
+                            </TextBox>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0 20">
+                            <materialDesign:PackIcon
                                     Kind="Account"
                                     Width="30"
                                     Height="30"
                                     Foreground="Black"
                                     VerticalAlignment="Center"
-                                    Margin="10,10,10,0" />
-                                <TextBox
-                                  x:Name="txtUsername"
+                                    Margin="10,10,20,-18" />
+                            <TextBox
+                                    x:Name="txtUsername"
                                   materialDesign:HintAssist.Hint="Tên đăng nhập"
                                   Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                   VerticalAlignment="Center"
                                     Foreground="Black"
-                                    Width="220"
+                                    Width="250"
                                     Height="50"
-                                    FontSize="16"
+                                    FontSize="18"
                                     FontWeight="Medium"
                                     Padding="2,0,0,0">
+                                <TextBox.Text>
                                     <Binding Path="UserName" UpdateSourceTrigger="PropertyChanged">
                                         <Binding.ValidationRules>
-                                            <vd:TextBoxValidation  ErrorMessage="Chỉ sử dụng các chữ cái (a -> z, A->Z) hoặc chữ số (0 -> 9)"
+                                            <vd:TextBoxValidation ErrorMessage="Chỉ sử dụng các chữ cái (a -> z, A->Z) hoặc chữ số (0 -> 9)"
                                                       ErrorMessageNull="Vui lòng nhập tên đăng nhập!" />
                                         </Binding.ValidationRules>
                                     </Binding>
-                                </TextBox>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal" Margin="0 20">
-                                <materialDesign:PackIcon
+                                </TextBox.Text>
+                            </TextBox>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0 20">
+                            <materialDesign:PackIcon
                                     Kind="Password"
                                     Width="30"
                                     Height="30"
                                     Foreground="Black"
                                     VerticalAlignment="Center"
-                                    Margin="10,10,10,0" />
-                                <PasswordBox
+                                    Margin="10,10,20,-14" />
+                            <PasswordBox
                                   x:Name="PasswordBox"
                                   materialDesign:HintAssist.Hint="Mật khẩu"
                                   materialDesign:HintAssist.Foreground="Green"
@@ -112,21 +117,21 @@
                                   Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
                                    VerticalAlignment="Center"
                                     Foreground="Black"
-                                    Width="220"
+                                    Width="250"
                                     Height="50"
-                                    FontSize="16"
+                                    FontSize="18"
                                     FontWeight="Medium"
                                     Padding="2,0,0,0" />
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal" Margin="0 20">
-                                <materialDesign:PackIcon
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0 20">
+                            <materialDesign:PackIcon
                                     Kind="Password"
                                     Width="30"
                                     Height="30"
                                     Foreground="Black"
                                     VerticalAlignment="Center"
-                                    Margin="10,10,10,0" />
-                                <PasswordBox
+                                    Margin="10,10,20,-14" />
+                            <PasswordBox
                                   x:Name="RePasswordBox"
                                   materialDesign:HintAssist.Hint="Nhập lại mật khẩu"
                                   materialDesign:HintAssist.Foreground="Green"
@@ -134,34 +139,36 @@
                                   Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
                                    VerticalAlignment="Center"
                                     Foreground="Black"
-                                    Width="220"
+                                    Width="250"
                                     Height="50"
                                     FontSize="16"
                                     FontWeight="Medium"
                                     Padding="2,0,0,0" />
-                            </StackPanel>
-                            <Button
-                                IsDefault="True"
-                                x:Name="btnSignUp"
-                                Command="{Binding SignUpCommand}"
-                                CommandParameter="{Binding ElementName=wdSignUp}"
-                                FocusVisualStyle="{x:Null}"
-                                Content="Đăng ký"
-                                FontSize="20"
-                                FontWeight="Bold"
-                                Height="40"
-                                Width="180"
-                                Margin="0 20"
-                                materialDesign:ButtonAssist.CornerRadius="4"
-                                ToolTip="Đăng ký"
-                                VerticalAlignment="Top"
-                                HorizontalAlignment="Center"
-                                BorderThickness="0">
-                            </Button>
                         </StackPanel>
-                    </Grid>
-                </StackPanel>
-            </Grid>
-        </Border>
+                        <Button
+                            Style="{StaticResource GreenBtn}"
+                            Content="Đăng ký"
+                            Width="270"
+                            Height="40"
+                                Width="180"
+                            Margin="0 20"
+                            FontSize="20"
+                            Foreground="White">
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </Grid>
+
+        <Rectangle
+            Fill="White"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            RadiusY="10"
+            RadiusX="10"
+            Panel.ZIndex="-2"
+            Effect="{StaticResource dropShadow}"
+            Margin="10">
+        </Rectangle>
     </Grid>
 </Window>

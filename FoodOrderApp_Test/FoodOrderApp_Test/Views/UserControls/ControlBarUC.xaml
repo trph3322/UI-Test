@@ -88,10 +88,10 @@
                     <Style>
                         <Style.Triggers>
                             <Trigger Property="Button.IsMouseOver" Value="True">
-                                <Setter Property="Button.Background" Value="#1ed760"></Setter>
+                                <Setter Property="Button.Background" Value="{DynamicResource LightGreen}"></Setter>
                             </Trigger>
                             <Trigger Property="Button.IsMouseOver" Value="False">
-                                <Setter Property="Button.Background" Value="#1db954"></Setter>
+                                <Setter Property="Button.Background" Value="{DynamicResource DarkGreen}"></Setter>
                             </Trigger>
                         </Style.Triggers>
                     </Style>

@@ -8,5 +8,9 @@ namespace FoodOrderApp_Test.ViewModels
 {
     class LoginViewModel : BaseViewModel
     {
+        public LoginViewModel()
+        {
+        }
+
     }
 }

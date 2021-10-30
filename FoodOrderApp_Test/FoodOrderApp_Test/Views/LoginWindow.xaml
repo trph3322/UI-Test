@@ -12,13 +12,13 @@
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
-        TextOptions.TextFormattingMode="Ideal" 
-        TextOptions.TextRenderingMode="Auto"        
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
         Background="{x:Null}"
-        FontFamily="{DynamicResource MaterialDesignFont}" 
-        Foreground="{x:Null}" 
-        AllowsTransparency="True" 
-        WindowStyle="None" 
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Foreground="{x:Null}"
+        AllowsTransparency="True"
+        WindowStyle="None"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
 
     <Border Style="{StaticResource roundedCorner}" Effect="{StaticResource dropShadow}">
@@ -27,16 +27,16 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            
+
             <!--Image-->
             <Grid Grid.Column="0">
                 <Border CornerRadius="10 0 0 10">
                     <Border.Background>
-                        <ImageBrush ImageSource="/Resources/Images/food.jpg" Stretch="UniformToFill"/>
+                        <ImageBrush ImageSource="/Resources/Images/food.jpg" Stretch="UniformToFill" />
                     </Border.Background>
                 </Border>
             </Grid>
-            
+
             <!--Login-->
             <Grid Grid.Column="1">
                 <Border CornerRadius="0 10 10 0" Background="#e6e6e6">
@@ -49,11 +49,138 @@
                         <!--Control Bar-->
                         <uc:ControlBarUC Grid.Row="0"></uc:ControlBarUC>
 
-                        <!--Login Grid-->
+                    <!--Login Grid-->
+                    <Grid Grid.Row="1" Margin="150 100">
+                        <TextBlock Text="Đăng nhập"
+                                    HorizontalAlignment="Center"
+                                    Margin="0 40 0 0"
+                                    FontSize="40"
+                                    FontWeight="Bold"
+                                    Foreground="#F57C00">
+                        </TextBlock>
+
+                        <Grid Margin="60 140 60 300">
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Grid Grid.Row="0">
+                                <materialDesign:PackIcon
+                                        Kind="Account"
+                                        Foreground="#616161"
+                                        Width="30"
+                                        Height="30"
+                                        VerticalAlignment="Bottom"
+                                        HorizontalAlignment="Left"
+                                        Margin="0 0 0 -5" />
+                                <TextBox
+                                        materialDesign:HintAssist.Hint="Tài khoản"
+                                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                        Foreground="Black"
+                                        FontSize="16"
+                                        FontWeight="Medium"
+                                        materialDesign:HintAssist.Foreground="Black"
+                                        materialDesign:TextFieldAssist.UnderlineBrush="Black"
+                                        Width="230"
+                                        VerticalAlignment="Bottom"
+                                        HorizontalAlignment="Right">
+                                </TextBox>
+                            </Grid>
+
+                            <Grid Grid.Row="1">
+                                <materialDesign:PackIcon
+                                        Kind="Lock"
+                                        Foreground="#616161"
+                                        Width="30"
+                                        Height="30"
+                                        VerticalAlignment="Bottom"
+                                        HorizontalAlignment="Left"
+                                        Margin="0 0 0 -3" />
+                                <PasswordBox
+                                        x:Name="FloatingPasswordBox"
+                                        materialDesign:HintAssist.Hint="Mật khẩu"
+                                        Foreground="Black"
+                                        FontSize="16"
+                                        FontWeight="Medium"
+                                        materialDesign:HintAssist.Foreground="Black"
+                                        materialDesign:TextFieldAssist.UnderlineBrush="Black"
+                                        Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
+                                        Width="230"
+                                        VerticalAlignment="Bottom"
+                                        HorizontalAlignment="Right" />
+                            </Grid>
+                        </Grid>
+
+                        <Button
+                            Style="{StaticResource forgotPasswordBtn}"
+                            Content="Quên mật khẩu"
+                            FontSize="15"
+                            Foreground="#616161"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Left"
+                            Height="22"
+                            Width="110"
+                            Padding="0"
+                            Margin="60 55 0 0"
+                            Background="Transparent"
+                            Cursor="Hand">
+                        </Button>
+
+                        <Button
+                            Style="{StaticResource GreenBtn}"
+                            Content="Đăng nhập"
+                            Width="270"
+                            Height="40"
+                            Margin="0 170 0 0"
+                            FontSize="20"
+                            Foreground="White">
+                        </Button>
+
+                        <TextBlock
+                            Text="Chưa có tài khoản?"
+                            Foreground="#616161"
+                            FontSize="15"
+                            VerticalAlignment="Bottom"
+                            HorizontalAlignment="Center"
+                            Margin="0 0 0 70">
+                        </TextBlock>
+
+                        <Button
+                            Style="{StaticResource GrayBtn}"
+                            Content="Đăng ký"
+                            Width="270"
+                            Height="40"
+                            FontSize="20"
+                            VerticalAlignment="Bottom"
+                            HorizontalAlignment="Center"
+                            Margin="0 0 0 20">
+                        </Button>
+
+                        <!--Background for Form-->
+                        <Rectangle
+                            Fill="White"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            RadiusY="20"
+                            RadiusX="20"
+                            Panel.ZIndex="-1"
+                            Effect="{StaticResource dropShadow}">
+                        </Rectangle>
                     </Grid>
-                </Border>
+                </Grid>
             </Grid>
         </Grid>
-    </Border>
-    
+
+        <Rectangle
+            Fill="#e6e6e6"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            RadiusY="10"
+            RadiusX="10"
+            Panel.ZIndex="-2"
+            Effect="{StaticResource dropShadow}"
+            Margin="10">
+        </Rectangle>
+    </Grid>
 </Window>
