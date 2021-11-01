@@ -1,0 +1,77 @@
+﻿<UserControl x:Class="FoodOrderApp_Test.Views.UserControls.MenuUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:FoodOrderApp_Test.Views.UserControls"
+             mc:Ignorable="d"
+             Height="450" Width="800"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             Background="{x:Null}"
+             FontFamily="{DynamicResource MaterialDesignFont}"
+             Foreground="{x:Null}"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors">
+    <Grid>
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal">
+                <!--Khung search-->
+                <TextBox
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Center"
+                    Height="50"
+                    Width="500"
+                    AcceptsReturn="True"
+                    TextWrapping="Wrap"
+                    VerticalScrollBarVisibility="Disabled"
+                    materialDesign:HintAssist.Hint="Search"
+                    Margin="20 10" />
+                <!--Filter-->
+                <ComboBox Height="50" Width="150"
+                          materialDesign:HintAssist.Hint="Filter"
+                          VerticalAlignment="Top"
+                          HorizontalAlignment="Center"
+                          Margin="10"
+                          Foreground="Black"
+                          Background="Transparent">
+                    <ComboBoxItem>
+                        <CheckBox>Giá tăng</CheckBox>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <CheckBox>Giá giảm</CheckBox>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <CheckBox>Khuyến mãi</CheckBox>
+                    </ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+            <!--item panel-->
+            <ScrollViewer Grid.Row="1">
+                <WrapPanel>
+                    <TextBlock Foreground="Black">
+                        Đang chưa biét xài search với filter style như nào
+                    </TextBlock>
+                </WrapPanel>
+            </ScrollViewer>
+        </Grid>
+        <Rectangle
+            Fill="LightGray"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            RadiusY="10"
+            RadiusX="10"
+            Panel.ZIndex="-2"
+            Effect="{StaticResource dropShadow}"
+            Margin="10">
+        </Rectangle>
+    </Grid>
+</UserControl>
