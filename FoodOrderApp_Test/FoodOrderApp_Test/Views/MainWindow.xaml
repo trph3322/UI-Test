@@ -7,7 +7,6 @@
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:uc="clr-namespace:FoodOrderApp_Test.Views.UserControls"
         mc:Ignorable="d"
-        x:Name="mainWindowView"
         DataContext="{StaticResource MainVM}"
         Title="LoginWindow" Height="820" Width="1420"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -25,16 +24,28 @@
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding LoadCommand}"
-                                           CommandParameter="{Binding ElementName=controlBar}" />
+                                   CommandParameter="{Binding ElementName=controlBar}" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="30"></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
-        <uc:ControlBarUC x:Name="controlBar" Grid.Row="0">
-        </uc:ControlBarUC>
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <uc:ControlBarUC x:Name="controlBar" Grid.Row="0">
+            </uc:ControlBarUC>
+        </Grid>
+        <Rectangle
+            Fill="White"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            RadiusY="10"
+            RadiusX="10"
+            Panel.ZIndex="-2"
+            Effect="{StaticResource dropShadow}"
+            Margin="10">
+        </Rectangle>
     </Grid>
 </Window>

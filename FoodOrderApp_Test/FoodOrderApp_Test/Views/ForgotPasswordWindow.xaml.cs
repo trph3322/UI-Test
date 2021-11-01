@@ -1,5 +1,4 @@
-﻿using FoodOrderApp_Test.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,21 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace FoodOrderApp_Test.Views.UserControls
+namespace FoodOrderApp_Test.Views
 {
     /// <summary>
-    /// Interaction logic for ControlBarUC.xaml
+    /// Interaction logic for ForgotPasswordWindow.xaml
     /// </summary>
-    public partial class ControlBarUC : UserControl
+    public partial class ForgotPasswordWindow : Window
     {
-        public ControlBarViewModel viewModel { get; set; }
-        public ControlBarUC()
+        public ForgotPasswordWindow()
         {
             InitializeComponent();
-            this.DataContext = viewModel = new ControlBarViewModel();
         }
     }
 }
