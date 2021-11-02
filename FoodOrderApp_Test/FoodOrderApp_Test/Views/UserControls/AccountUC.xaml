@@ -18,18 +18,15 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
     <Grid>
         <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="3*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Grid
-            x:Name="grdSelectImage"
-            Margin="50,50,0,0"
-            VerticalAlignment="Top"
-            Width="150"
-            Height="150"
-            HorizontalAlignment="Left">
-                <Rectangle
+            <StackPanel>
+                <Grid
+                x:Name="grdSelectImage"
+                Margin="40"
+                VerticalAlignment="Top"
+                Width="150"
+                Height="150"
+                HorizontalAlignment="Center">
+                    <Rectangle
                 x:Name="recImage"
                 StrokeDashArray="4 2"
                 Stroke="{StaticResource Orange1}"
@@ -40,7 +37,7 @@
                 Height="150"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top" />
-                <Button
+                    <Button
                 x:Name="btnSelectImage"
                 Content="Chọn ảnh"
                 Height="35"
@@ -53,20 +50,20 @@
                 VerticalAlignment="Bottom"
                 FocusVisualStyle="{x:Null}"
                 FontSize="16">
-                </Button>
-            </Grid>
-            <Grid Grid.Column="1">
-                <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <!--Email-->
-                    <StackPanel Orientation="Horizontal" Margin="0 10">
-                        <materialDesign:PackIcon
+                    </Button>
+                </Grid>
+                <Grid>
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <!--Email-->
+                        <StackPanel Orientation="Horizontal" Margin="0 20">
+                            <materialDesign:PackIcon
                                     Kind="Gmail"
                                     Width="30"
                                     Height="30"
                                     Foreground="{StaticResource Gray}"
                                     VerticalAlignment="Center"
                                     Margin="10,10,20,-18" />
-                        <TextBox
+                            <TextBox
                                 materialDesign:HintAssist.Hint="Email"
                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                 Foreground="Black"
@@ -78,18 +75,18 @@
                                 VerticalContentAlignment="Center"
                                 Height="50"
                                 Padding="2,0,0,0">
-                        </TextBox>
-                    </StackPanel>
-                    <!--Tên người dùng-->
-                    <StackPanel Orientation="Horizontal" Margin="0 10">
-                        <materialDesign:PackIcon
+                            </TextBox>
+                        </StackPanel>
+                        <!--Tên người dùng-->
+                        <StackPanel Orientation="Horizontal" Margin="0 20">
+                            <materialDesign:PackIcon
                                     Kind="Account"
                                     Width="30"
                                     Height="30"
                                     Foreground="{StaticResource Gray}"
                                     VerticalAlignment="Center"
                                     Margin="10,10,20,-18" />
-                        <TextBox
+                            <TextBox
                                 x:Name="txtUsername"
                                 materialDesign:HintAssist.Hint="Tên"
                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
@@ -102,18 +99,18 @@
                                 VerticalContentAlignment="Center"
                                 Height="50"
                                 Padding="2,0,0,0">
-                        </TextBox>
-                    </StackPanel>
-                    <!--Số điện thoại-->
-                    <StackPanel Orientation="Horizontal" Margin="0 10">
-                        <materialDesign:PackIcon
+                            </TextBox>
+                        </StackPanel>
+                        <!--Số điện thoại-->
+                        <StackPanel Orientation="Horizontal" Margin="0 20">
+                            <materialDesign:PackIcon
                                     Kind="Phone"
                                     Width="30"
                                     Height="30"
                                     Foreground="{StaticResource Gray}"
                                     VerticalAlignment="Center"
                                     Margin="10,10,20,-18" />
-                        <TextBox
+                            <TextBox
 
                                 materialDesign:HintAssist.Hint="Số điện thoại"
                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
@@ -126,50 +123,50 @@
                                 VerticalContentAlignment="Center"
                                 Height="50"
                                 Padding="2,0,0,0">
-                        </TextBox>
-                    </StackPanel>
-                    <!--giới tính-->
-                    <StackPanel Orientation="Horizontal" Margin="0 10">
-                        <materialDesign:PackIcon
+                            </TextBox>
+                        </StackPanel>
+                        <!--giới tính-->
+                        <StackPanel Orientation="Horizontal" Margin="0 20">
+                            <materialDesign:PackIcon
                                     Kind="GenderMaleFemale"
                                     Width="30"
                                     Height="30"
                                     Foreground="{StaticResource Gray}"
                                     VerticalAlignment="Center"
                                     Margin="10,10,20,-18" />
-                        <RadioButton Content="Nam" Width="100" Foreground="{StaticResource Gray}"></RadioButton>
-                        <RadioButton Content="Nữ" HorizontalAlignment="Center" Foreground="{StaticResource Gray}"></RadioButton>
-                    </StackPanel>
-                    <!--Ngày sinh-->
-                    <StackPanel Orientation="Horizontal" Margin="0 10">
-                        <materialDesign:PackIcon
+                            <RadioButton Content="Nam" Width="100" Foreground="{StaticResource Gray}"></RadioButton>
+                            <RadioButton Content="Nữ" HorizontalAlignment="Center" Foreground="{StaticResource Gray}"></RadioButton>
+                        </StackPanel>
+                        <!--Ngày sinh-->
+                        <StackPanel Orientation="Horizontal" Margin="0 20">
+                            <materialDesign:PackIcon
                                     Kind="Calendar"
                                     Width="30"
                                     Height="30"
                                     Foreground="{StaticResource Gray}"
                                     VerticalAlignment="Center"
                                     Margin="10,10,20,-18" />
-                        <DatePicker
+                            <DatePicker
                             materialDesign:HintAssist.Hint="Ngày sinh"
                             Width="250"
                             Height="40"
                             FontSize="16"
                             Foreground="{StaticResource Gray}"
                             HorizontalContentAlignment="Right">
-                        </DatePicker>
-                    </StackPanel>
-                    <Button
+                            </DatePicker>
+                        </StackPanel>
+                        <Button
                             Style="{StaticResource GreenBtn}"
                             Content="Cập nhật thông tin"
                             Width="270"
                             Height="40"
-                            Margin="0 50 0 0"
+                            Margin="0 40 0 0"
                             FontSize="20"
                             Foreground="White">
-                    </Button>
-                </StackPanel>
-            </Grid>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
         </Grid>
-        
     </Grid>
 </UserControl>

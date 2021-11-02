@@ -29,7 +29,7 @@
     <Grid>
         <Grid Margin="10">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
+                <ColumnDefinition />
                 <ColumnDefinition Width="3*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
@@ -41,10 +41,9 @@
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
 
-                <uc:ControlBarUC Grid.Row="0"></uc:ControlBarUC>
+                <uc:ControlBarUC Grid.Row="0" x:Name="controlBar"></uc:ControlBarUC>
                 <uc:AccountUC Grid.Row="1"></uc:AccountUC>
             </Grid>
-            
         </Grid>
         <Rectangle
             Fill="White"
