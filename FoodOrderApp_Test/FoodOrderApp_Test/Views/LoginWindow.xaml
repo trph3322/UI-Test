@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FoodOrderApp_Test.Views"
         xmlns:uc="clr-namespace:FoodOrderApp_Test.Views.UserControls"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
         DataContext="{StaticResource LoginVM}"
         Title="LoginWindow" Height="820" Width="1420"
@@ -19,7 +20,9 @@
         Foreground="{x:Null}" 
         AllowsTransparency="True" 
         WindowStyle="None" 
-        WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
+        x:Name="wdLogin">
+     
 
     <Grid>
         <Grid Margin="10">
@@ -27,7 +30,7 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            
+
             <!--Image-->
             <Grid Grid.Column="0" Margin="0 0 -10 0">
                 <Border CornerRadius="10 0 0 10" BorderThickness="0 0 10 0" Effect="{StaticResource dropShadow}">
@@ -36,7 +39,7 @@
                     </Border.Background>
                 </Border>
             </Grid>
-            
+
             <!--Login-->
             <Grid Grid.Column="1">
                 <Grid>
@@ -74,6 +77,8 @@
                                         HorizontalAlignment="Left"
                                         Margin="0 0 0 -5"/>
                                 <TextBox
+                                        x:Name="txtUsername"
+                                        Text="{Binding Username}"
                                         materialDesign:HintAssist.Hint="Tài khoản"
                                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                         Foreground="Black"
@@ -88,6 +93,10 @@
                             </Grid>
 
                             <Grid Grid.Row="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="13*"/>
+                                    <ColumnDefinition Width="22*"/>
+                                </Grid.ColumnDefinitions>
                                 <materialDesign:PackIcon 
                                         Kind="Lock"
                                         Foreground="{StaticResource Gray}"
@@ -95,9 +104,9 @@
                                         Height="30"
                                         VerticalAlignment="Bottom"
                                         HorizontalAlignment="Left"
-                                        Margin="0 0 0 -3"/>
+                                        Margin="0,0,0,-3.4"/>
                                 <PasswordBox
-                                        x:Name="FloatingPasswordBox"
+                                        x:Name="txtPassword"
                                         materialDesign:HintAssist.Hint="Mật khẩu"
                                         Foreground="Black"
                                         FontSize="16"
@@ -107,7 +116,13 @@
                                         Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" 
                                         Width="230"
                                         VerticalAlignment="Bottom" 
-                                        HorizontalAlignment="Right"/>
+                                        HorizontalAlignment="Right" Grid.ColumnSpan="2" Margin="0,0,0,-0.4"/>
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="PasswordChanged">
+                                                <i:InvokeCommandAction Command="{Binding PasswordChangedCommand}" 
+                                                   CommandParameter="{Binding ElementName=txtPassword}"/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
                             </Grid>
                         </Grid>
 
@@ -127,13 +142,17 @@
                         </Button>
 
                         <Button
+                            x:Name="btnLogin"
+                            IsDefault="True"
+                            Command="{Binding LogInCommand}"
+                            CommandParameter="{Binding ElementName=wdLogin}"
                             Style="{StaticResource GreenBtn}"
                             Content="Đăng nhập"
                             Width="270"
                             Height="40"
                             Margin="0 170 0 0"
                             FontSize="20"
-                            Foreground="White">
+                            Foreground="White" >
                         </Button>
 
                         <TextBlock 
@@ -143,10 +162,14 @@
                             VerticalAlignment="Bottom"
                             HorizontalAlignment="Center"
                             Margin="0 0 0 70">
-                            
+
                         </TextBlock>
 
                         <Button
+                            x:Name="btnSignUp"
+                            IsDefault="True"
+                            Command="{Binding SignUpCommand}"
+                            CommandParameter="{Binding ElementName=wdLogin}"
                             Style="{StaticResource GrayBtn}"
                             Content="Đăng ký"
                             Width="270"
@@ -171,7 +194,7 @@
                 </Grid>
             </Grid>
         </Grid>
-        
+
         <Rectangle 
             Fill="#e6e6e6"
             HorizontalAlignment="Stretch"
@@ -183,5 +206,5 @@
             Margin="10">
         </Rectangle>
     </Grid>
-    
+
 </Window>

@@ -18,6 +18,8 @@ namespace FoodOrderApp_Test.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
+
+
     public class RelayCommand<T> : ICommand
     {
         private readonly Predicate<T> _canExecute;

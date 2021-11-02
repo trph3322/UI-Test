@@ -8,7 +8,7 @@
         xmlns:uc="clr-namespace:FoodOrderApp_Test.Views.UserControls"
         mc:Ignorable="d"
         DataContext="{StaticResource MainVM}"
-        Title="LoginWindow" Height="820" Width="1420"
+        Title="MainWindow" Height="820" Width="1420"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
