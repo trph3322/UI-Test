@@ -28,13 +28,23 @@
     </i:Interaction.Triggers>
     <Grid>
         <Grid Margin="10">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="30"></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-            </Grid.RowDefinitions>
-            <uc:ControlBarUC x:Name="controlBar" Grid.Row="0" Grid.ColumnSpan="2">
-            </uc:ControlBarUC>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0"></Grid>
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <uc:ControlBarUC Grid.Row="0"></uc:ControlBarUC>
+                <uc:AccountUC Grid.Row="1"></uc:AccountUC>
+            </Grid>
+            
         </Grid>
         <Rectangle
             Fill="White"
