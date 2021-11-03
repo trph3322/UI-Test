@@ -13,10 +13,10 @@ namespace FoodOrderApp_Test.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class OrderAppEntities : DbContext
+    public partial class OrderAppEntities1 : DbContext
     {
-        public OrderAppEntities()
-            : base("name=OrderAppEntities")
+        public OrderAppEntities1()
+            : base("name=OrderAppEntities1")
         {
         }
     
@@ -25,11 +25,9 @@ namespace FoodOrderApp_Test.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<ADMINISTRATOR> ADMINISTRATORs { get; set; }
-        public virtual DbSet<BILL> BILLs { get; set; }
-        public virtual DbSet<BuildVersion> BuildVersions { get; set; }
         public virtual DbSet<CUSTOMER> CUSTOMERS { get; set; }
-        public virtual DbSet<ErrorLog> ErrorLogs { get; set; }
         public virtual DbSet<PRODUCT> PRODUCTs { get; set; }
+        public virtual DbSet<RECEIPT> RECEIPTs { get; set; }
+        public virtual DbSet<RECEIPT_DETAIL> RECEIPT_DETAIL { get; set; }
     }
 }

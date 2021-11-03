@@ -12,23 +12,22 @@ namespace FoodOrderApp_Test.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class CUSTOMER
+    public partial class RECEIPT
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public CUSTOMER()
+        public RECEIPT()
         {
-            this.RECEIPTs = new HashSet<RECEIPT>();
+            this.RECEIPT_DETAIL = new HashSet<RECEIPT_DETAIL>();
         }
     
-        public string CUSTOMER_USERNAME { get; set; }
-        public string CUSTOMER_PASSWORD { get; set; }
-        public string CUSTOMER_NAME { get; set; }
-        public string CUSTOMER_ADDRESS { get; set; }
-        public string CUSTOMER_SEX { get; set; }
-        public string CUSTOMER_PHONE { get; set; }
-        public string CUSTOMER_EMAIL { get; set; }
+        public string RECEIPT_ID { get; set; }
+        public System.DateTime RECEIPT_DATE { get; set; }
+        public int RECEIPT_VALUE { get; set; }
+        public string CUSTOMER { get; set; }
+        public string RECEIPT_STATUS { get; set; }
     
+        public virtual CUSTOMER CUSTOMER1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RECEIPT> RECEIPTs { get; set; }
+        public virtual ICollection<RECEIPT_DETAIL> RECEIPT_DETAIL { get; set; }
     }
 }

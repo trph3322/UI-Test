@@ -4,230 +4,255 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="OrderAppModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="ADMINISTRATOR">
-          <Key>
-            <PropertyRef Name="ADMINISTRATOR_ID" />
-          </Key>
-          <Property Name="ADMINISTRATOR_ID" Type="char" MaxLength="5" Nullable="false" />
-          <Property Name="ADMINISTRATOR_NAME" Type="nvarchar" MaxLength="100" />
-          <Property Name="ADMINISTRATOR_USERNAME" Type="varchar" MaxLength="100" />
-          <Property Name="ADMINISTRATOR_PASSWORD" Type="varchar" MaxLength="100" />
-        </EntityType>
-        <EntityType Name="BILL">
-          <Key>
-            <PropertyRef Name="BILL_ID" />
-          </Key>
-          <Property Name="BILL_ID" Type="char" MaxLength="10" Nullable="false" />
-          <Property Name="BILL_DATE" Type="smalldatetime" />
-          <Property Name="TOTAL_PRICE" Type="int" />
-        </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'OrderApp.dbo.BILL_DETAIL' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="BILL_DETAIL">
-          <Property Name="BILL_ID" Type="char" MaxLength="10" />
-          <Property Name="CUSTOMER_ID" Type="char" MaxLength="5" />
-          <Property Name="AMOUNT" Type="smallint" />
-        </EntityType>-->
-        <EntityType Name="BuildVersion">
-          <Key>
-            <PropertyRef Name="SystemInformationID" />
-          </Key>
-          <Property Name="SystemInformationID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Database Version" Type="nvarchar" MaxLength="25" Nullable="false" />
-          <Property Name="VersionDate" Type="datetime" Nullable="false" />
-          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
-        </EntityType>
+    <Schema Namespace="OrderAppModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CUSTOMERS">
           <Key>
-            <PropertyRef Name="CUSTOMER_ID" />
+            <PropertyRef Name="CUSTOMER_USERNAME" />
           </Key>
-          <Property Name="CUSTOMER_ID" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="CUSTOMER_USERNAME" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CUSTOMER_PASSWORD" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="CUSTOMER_NAME" Type="nvarchar" MaxLength="100" />
           <Property Name="CUSTOMER_ADDRESS" Type="nvarchar" MaxLength="100" />
+          <Property Name="CUSTOMER_SEX" Type="nvarchar" MaxLength="3" />
           <Property Name="CUSTOMER_PHONE" Type="varchar" MaxLength="10" />
-          <Property Name="CUSTOMER_USERNAME" Type="varchar" MaxLength="100" />
-          <Property Name="CUSTOMER_PASSWORD" Type="varchar" MaxLength="100" />
-          <Property Name="CUSTOMER_EMAIL" Type="varchar" MaxLength="100" />
-        </EntityType>
-        <EntityType Name="ErrorLog">
-          <Key>
-            <PropertyRef Name="ErrorLogID" />
-          </Key>
-          <Property Name="ErrorLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ErrorTime" Type="datetime" Nullable="false" />
-          <Property Name="UserName" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="ErrorNumber" Type="int" Nullable="false" />
-          <Property Name="ErrorSeverity" Type="int" />
-          <Property Name="ErrorState" Type="int" />
-          <Property Name="ErrorProcedure" Type="nvarchar" MaxLength="126" />
-          <Property Name="ErrorLine" Type="int" />
-          <Property Name="ErrorMessage" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="CUSTOMER_EMAIL" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="PRODUCT">
           <Key>
             <PropertyRef Name="PRODUCT_ID" />
           </Key>
-          <Property Name="PRODUCT_ID" Type="char" MaxLength="4" Nullable="false" />
-          <Property Name="PRODUCT_NAME" Type="nvarchar" MaxLength="50" />
-          <Property Name="IMAGE_PATH" Type="text" />
-          <Property Name="PRICE" Type="int" />
-          <Property Name="PRODUCT_DESCRIPTION" Type="ntext" />
+          <Property Name="PRODUCT_ID" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="PRODUCT_NAME" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="PRODUCT_IMAGE" Type="varchar" MaxLength="100" />
+          <Property Name="PRODUCT_PRICE" Type="int" Nullable="false" />
+          <Property Name="PRODUCT_DESCRIPTION" Type="text" />
         </EntityType>
+        <EntityType Name="RECEIPT">
+          <Key>
+            <PropertyRef Name="RECEIPT_ID" />
+          </Key>
+          <Property Name="RECEIPT_ID" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="RECEIPT_DATE" Type="smalldatetime" Nullable="false" />
+          <Property Name="RECEIPT_VALUE" Type="int" Nullable="false" />
+          <Property Name="CUSTOMER" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="RECEIPT_STATUS" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RECEIPT_DETAIL">
+          <Key>
+            <PropertyRef Name="DETAIL_ID" />
+          </Key>
+          <Property Name="DETAIL_ID" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="RECEIPT_ID" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="PRODUCT" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="AMOUNT" Type="smallint" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_DETAIL_PRODUCT">
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+          <End Role="RECEIPT_DETAIL" Type="Self.RECEIPT_DETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="PRODUCT_ID" />
+            </Principal>
+            <Dependent Role="RECEIPT_DETAIL">
+              <PropertyRef Name="PRODUCT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DETAIL_RECEIPT">
+          <End Role="RECEIPT" Type="Self.RECEIPT" Multiplicity="1" />
+          <End Role="RECEIPT_DETAIL" Type="Self.RECEIPT_DETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RECEIPT">
+              <PropertyRef Name="RECEIPT_ID" />
+            </Principal>
+            <Dependent Role="RECEIPT_DETAIL">
+              <PropertyRef Name="RECEIPT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RECEIPT_CUSTOMER">
+          <End Role="CUSTOMERS" Type="Self.CUSTOMERS" Multiplicity="1" />
+          <End Role="RECEIPT" Type="Self.RECEIPT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMERS">
+              <PropertyRef Name="CUSTOMER_USERNAME" />
+            </Principal>
+            <Dependent Role="RECEIPT">
+              <PropertyRef Name="CUSTOMER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="OrderAppModelStoreContainer">
-          <EntitySet Name="ADMINISTRATOR" EntityType="Self.ADMINISTRATOR" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="BILL" EntityType="Self.BILL" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="BuildVersion" EntityType="Self.BuildVersion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CUSTOMERS" EntityType="Self.CUSTOMERS" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ErrorLog" EntityType="Self.ErrorLog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PRODUCT" EntityType="Self.PRODUCT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RECEIPT" EntityType="Self.RECEIPT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RECEIPT_DETAIL" EntityType="Self.RECEIPT_DETAIL" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_DETAIL_PRODUCT" Association="Self.FK_DETAIL_PRODUCT">
+            <End Role="PRODUCT" EntitySet="PRODUCT" />
+            <End Role="RECEIPT_DETAIL" EntitySet="RECEIPT_DETAIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DETAIL_RECEIPT" Association="Self.FK_DETAIL_RECEIPT">
+            <End Role="RECEIPT" EntitySet="RECEIPT" />
+            <End Role="RECEIPT_DETAIL" EntitySet="RECEIPT_DETAIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RECEIPT_CUSTOMER" Association="Self.FK_RECEIPT_CUSTOMER">
+            <End Role="CUSTOMERS" EntitySet="CUSTOMERS" />
+            <End Role="RECEIPT" EntitySet="RECEIPT" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="OrderAppModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="ADMINISTRATOR">
-          <Key>
-            <PropertyRef Name="ADMINISTRATOR_ID" />
-          </Key>
-          <Property Name="ADMINISTRATOR_ID" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="ADMINISTRATOR_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="ADMINISTRATOR_USERNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="ADMINISTRATOR_PASSWORD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="BILL">
-          <Key>
-            <PropertyRef Name="BILL_ID" />
-          </Key>
-          <Property Name="BILL_ID" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="BILL_DATE" Type="DateTime" Precision="0" />
-          <Property Name="TOTAL_PRICE" Type="Int32" />
-        </EntityType>
-        <EntityType Name="BuildVersion">
-          <Key>
-            <PropertyRef Name="SystemInformationID" />
-          </Key>
-          <Property Name="SystemInformationID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Database_Version" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="VersionDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
-        </EntityType>
+        <EntityContainer Name="OrderAppEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CUSTOMERS" EntityType="OrderAppModel.CUSTOMER" />
+          <EntitySet Name="PRODUCTs" EntityType="OrderAppModel.PRODUCT" />
+          <EntitySet Name="RECEIPTs" EntityType="OrderAppModel.RECEIPT" />
+          <EntitySet Name="RECEIPT_DETAIL" EntityType="OrderAppModel.RECEIPT_DETAIL" />
+          <AssociationSet Name="FK_RECEIPT_CUSTOMER" Association="OrderAppModel.FK_RECEIPT_CUSTOMER">
+            <End Role="CUSTOMER" EntitySet="CUSTOMERS" />
+            <End Role="RECEIPT" EntitySet="RECEIPTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DETAIL_PRODUCT" Association="OrderAppModel.FK_DETAIL_PRODUCT">
+            <End Role="PRODUCT" EntitySet="PRODUCTs" />
+            <End Role="RECEIPT_DETAIL" EntitySet="RECEIPT_DETAIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DETAIL_RECEIPT" Association="OrderAppModel.FK_DETAIL_RECEIPT">
+            <End Role="RECEIPT" EntitySet="RECEIPTs" />
+            <End Role="RECEIPT_DETAIL" EntitySet="RECEIPT_DETAIL" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="CUSTOMER">
           <Key>
-            <PropertyRef Name="CUSTOMER_ID" />
+            <PropertyRef Name="CUSTOMER_USERNAME" />
           </Key>
-          <Property Name="CUSTOMER_ID" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CUSTOMER_USERNAME" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CUSTOMER_PASSWORD" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="CUSTOMER_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="CUSTOMER_ADDRESS" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CUSTOMER_SEX" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
           <Property Name="CUSTOMER_PHONE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="CUSTOMER_USERNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="CUSTOMER_PASSWORD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="CUSTOMER_EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="ErrorLog">
-          <Key>
-            <PropertyRef Name="ErrorLogID" />
-          </Key>
-          <Property Name="ErrorLogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ErrorTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="UserName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ErrorNumber" Type="Int32" Nullable="false" />
-          <Property Name="ErrorSeverity" Type="Int32" />
-          <Property Name="ErrorState" Type="Int32" />
-          <Property Name="ErrorProcedure" Type="String" MaxLength="126" FixedLength="false" Unicode="true" />
-          <Property Name="ErrorLine" Type="Int32" />
-          <Property Name="ErrorMessage" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CUSTOMER_EMAIL" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RECEIPTs" Relationship="OrderAppModel.FK_RECEIPT_CUSTOMER" FromRole="CUSTOMER" ToRole="RECEIPT" />
         </EntityType>
         <EntityType Name="PRODUCT">
           <Key>
             <PropertyRef Name="PRODUCT_ID" />
           </Key>
-          <Property Name="PRODUCT_ID" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="PRODUCT_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="IMAGE_PATH" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="PRICE" Type="Int32" />
-          <Property Name="PRODUCT_DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PRODUCT_ID" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="PRODUCT_NAME" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PRODUCT_IMAGE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PRODUCT_PRICE" Type="Int32" Nullable="false" />
+          <Property Name="PRODUCT_DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RECEIPT_DETAIL" Relationship="OrderAppModel.FK_DETAIL_PRODUCT" FromRole="PRODUCT" ToRole="RECEIPT_DETAIL" />
         </EntityType>
-        <EntityContainer Name="OrderAppEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="ADMINISTRATORs" EntityType="Self.ADMINISTRATOR" />
-          <EntitySet Name="BILLs" EntityType="Self.BILL" />
-          <EntitySet Name="BuildVersions" EntityType="Self.BuildVersion" />
-          <EntitySet Name="CUSTOMERS" EntityType="Self.CUSTOMER" />
-          <EntitySet Name="ErrorLogs" EntityType="Self.ErrorLog" />
-          <EntitySet Name="PRODUCTs" EntityType="Self.PRODUCT" />
-        </EntityContainer>
+        <EntityType Name="RECEIPT">
+          <Key>
+            <PropertyRef Name="RECEIPT_ID" />
+          </Key>
+          <Property Name="RECEIPT_ID" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="RECEIPT_DATE" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="RECEIPT_VALUE" Type="Int32" Nullable="false" />
+          <Property Name="CUSTOMER" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="RECEIPT_STATUS" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="CUSTOMER1" Relationship="OrderAppModel.FK_RECEIPT_CUSTOMER" FromRole="RECEIPT" ToRole="CUSTOMER" />
+          <NavigationProperty Name="RECEIPT_DETAIL" Relationship="OrderAppModel.FK_DETAIL_RECEIPT" FromRole="RECEIPT" ToRole="RECEIPT_DETAIL" />
+        </EntityType>
+        <EntityType Name="RECEIPT_DETAIL">
+          <Key>
+            <PropertyRef Name="DETAIL_ID" />
+          </Key>
+          <Property Name="DETAIL_ID" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="RECEIPT_ID" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="PRODUCT" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="AMOUNT" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="PRODUCT1" Relationship="OrderAppModel.FK_DETAIL_PRODUCT" FromRole="RECEIPT_DETAIL" ToRole="PRODUCT" />
+          <NavigationProperty Name="RECEIPT" Relationship="OrderAppModel.FK_DETAIL_RECEIPT" FromRole="RECEIPT_DETAIL" ToRole="RECEIPT" />
+        </EntityType>
+        <Association Name="FK_RECEIPT_CUSTOMER">
+          <End Type="OrderAppModel.CUSTOMER" Role="CUSTOMER" Multiplicity="1" />
+          <End Type="OrderAppModel.RECEIPT" Role="RECEIPT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="CUSTOMER_USERNAME" />
+            </Principal>
+            <Dependent Role="RECEIPT">
+              <PropertyRef Name="CUSTOMER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DETAIL_PRODUCT">
+          <End Type="OrderAppModel.PRODUCT" Role="PRODUCT" Multiplicity="1" />
+          <End Type="OrderAppModel.RECEIPT_DETAIL" Role="RECEIPT_DETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="PRODUCT_ID" />
+            </Principal>
+            <Dependent Role="RECEIPT_DETAIL">
+              <PropertyRef Name="PRODUCT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DETAIL_RECEIPT">
+          <End Type="OrderAppModel.RECEIPT" Role="RECEIPT" Multiplicity="1" />
+          <End Type="OrderAppModel.RECEIPT_DETAIL" Role="RECEIPT_DETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RECEIPT">
+              <PropertyRef Name="RECEIPT_ID" />
+            </Principal>
+            <Dependent Role="RECEIPT_DETAIL">
+              <PropertyRef Name="RECEIPT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="OrderAppModelStoreContainer" CdmEntityContainer="OrderAppEntities">
-          <EntitySetMapping Name="ADMINISTRATORs">
-            <EntityTypeMapping TypeName="OrderAppModel.ADMINISTRATOR">
-              <MappingFragment StoreEntitySet="ADMINISTRATOR">
-                <ScalarProperty Name="ADMINISTRATOR_ID" ColumnName="ADMINISTRATOR_ID" />
-                <ScalarProperty Name="ADMINISTRATOR_NAME" ColumnName="ADMINISTRATOR_NAME" />
-                <ScalarProperty Name="ADMINISTRATOR_USERNAME" ColumnName="ADMINISTRATOR_USERNAME" />
-                <ScalarProperty Name="ADMINISTRATOR_PASSWORD" ColumnName="ADMINISTRATOR_PASSWORD" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="BILLs">
-            <EntityTypeMapping TypeName="OrderAppModel.BILL">
-              <MappingFragment StoreEntitySet="BILL">
-                <ScalarProperty Name="BILL_ID" ColumnName="BILL_ID" />
-                <ScalarProperty Name="BILL_DATE" ColumnName="BILL_DATE" />
-                <ScalarProperty Name="TOTAL_PRICE" ColumnName="TOTAL_PRICE" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="BuildVersions">
-            <EntityTypeMapping TypeName="OrderAppModel.BuildVersion">
-              <MappingFragment StoreEntitySet="BuildVersion">
-                <ScalarProperty Name="SystemInformationID" ColumnName="SystemInformationID" />
-                <ScalarProperty Name="Database_Version" ColumnName="Database Version" />
-                <ScalarProperty Name="VersionDate" ColumnName="VersionDate" />
-                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
+        <EntityContainerMapping StorageEntityContainer="OrderAppModelStoreContainer" CdmEntityContainer="OrderAppEntities1">
           <EntitySetMapping Name="CUSTOMERS">
             <EntityTypeMapping TypeName="OrderAppModel.CUSTOMER">
               <MappingFragment StoreEntitySet="CUSTOMERS">
-                <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
-                <ScalarProperty Name="CUSTOMER_NAME" ColumnName="CUSTOMER_NAME" />
-                <ScalarProperty Name="CUSTOMER_ADDRESS" ColumnName="CUSTOMER_ADDRESS" />
-                <ScalarProperty Name="CUSTOMER_PHONE" ColumnName="CUSTOMER_PHONE" />
-                <ScalarProperty Name="CUSTOMER_USERNAME" ColumnName="CUSTOMER_USERNAME" />
-                <ScalarProperty Name="CUSTOMER_PASSWORD" ColumnName="CUSTOMER_PASSWORD" />
                 <ScalarProperty Name="CUSTOMER_EMAIL" ColumnName="CUSTOMER_EMAIL" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ErrorLogs">
-            <EntityTypeMapping TypeName="OrderAppModel.ErrorLog">
-              <MappingFragment StoreEntitySet="ErrorLog">
-                <ScalarProperty Name="ErrorLogID" ColumnName="ErrorLogID" />
-                <ScalarProperty Name="ErrorTime" ColumnName="ErrorTime" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="ErrorNumber" ColumnName="ErrorNumber" />
-                <ScalarProperty Name="ErrorSeverity" ColumnName="ErrorSeverity" />
-                <ScalarProperty Name="ErrorState" ColumnName="ErrorState" />
-                <ScalarProperty Name="ErrorProcedure" ColumnName="ErrorProcedure" />
-                <ScalarProperty Name="ErrorLine" ColumnName="ErrorLine" />
-                <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+                <ScalarProperty Name="CUSTOMER_PHONE" ColumnName="CUSTOMER_PHONE" />
+                <ScalarProperty Name="CUSTOMER_SEX" ColumnName="CUSTOMER_SEX" />
+                <ScalarProperty Name="CUSTOMER_ADDRESS" ColumnName="CUSTOMER_ADDRESS" />
+                <ScalarProperty Name="CUSTOMER_NAME" ColumnName="CUSTOMER_NAME" />
+                <ScalarProperty Name="CUSTOMER_PASSWORD" ColumnName="CUSTOMER_PASSWORD" />
+                <ScalarProperty Name="CUSTOMER_USERNAME" ColumnName="CUSTOMER_USERNAME" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PRODUCTs">
             <EntityTypeMapping TypeName="OrderAppModel.PRODUCT">
               <MappingFragment StoreEntitySet="PRODUCT">
-                <ScalarProperty Name="PRODUCT_ID" ColumnName="PRODUCT_ID" />
-                <ScalarProperty Name="PRODUCT_NAME" ColumnName="PRODUCT_NAME" />
-                <ScalarProperty Name="IMAGE_PATH" ColumnName="IMAGE_PATH" />
-                <ScalarProperty Name="PRICE" ColumnName="PRICE" />
                 <ScalarProperty Name="PRODUCT_DESCRIPTION" ColumnName="PRODUCT_DESCRIPTION" />
+                <ScalarProperty Name="PRODUCT_PRICE" ColumnName="PRODUCT_PRICE" />
+                <ScalarProperty Name="PRODUCT_IMAGE" ColumnName="PRODUCT_IMAGE" />
+                <ScalarProperty Name="PRODUCT_NAME" ColumnName="PRODUCT_NAME" />
+                <ScalarProperty Name="PRODUCT_ID" ColumnName="PRODUCT_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RECEIPTs">
+            <EntityTypeMapping TypeName="OrderAppModel.RECEIPT">
+              <MappingFragment StoreEntitySet="RECEIPT">
+                <ScalarProperty Name="RECEIPT_STATUS" ColumnName="RECEIPT_STATUS" />
+                <ScalarProperty Name="CUSTOMER" ColumnName="CUSTOMER" />
+                <ScalarProperty Name="RECEIPT_VALUE" ColumnName="RECEIPT_VALUE" />
+                <ScalarProperty Name="RECEIPT_DATE" ColumnName="RECEIPT_DATE" />
+                <ScalarProperty Name="RECEIPT_ID" ColumnName="RECEIPT_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RECEIPT_DETAIL">
+            <EntityTypeMapping TypeName="OrderAppModel.RECEIPT_DETAIL">
+              <MappingFragment StoreEntitySet="RECEIPT_DETAIL">
+                <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
+                <ScalarProperty Name="PRODUCT" ColumnName="PRODUCT" />
+                <ScalarProperty Name="RECEIPT_ID" ColumnName="RECEIPT_ID" />
+                <ScalarProperty Name="DETAIL_ID" ColumnName="DETAIL_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

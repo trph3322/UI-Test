@@ -14,10 +14,19 @@ namespace FoodOrderApp_Test.Models
     
     public partial class PRODUCT
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public PRODUCT()
+        {
+            this.RECEIPT_DETAIL = new HashSet<RECEIPT_DETAIL>();
+        }
+    
         public string PRODUCT_ID { get; set; }
         public string PRODUCT_NAME { get; set; }
-        public string IMAGE_PATH { get; set; }
-        public Nullable<int> PRICE { get; set; }
+        public string PRODUCT_IMAGE { get; set; }
+        public int PRODUCT_PRICE { get; set; }
         public string PRODUCT_DESCRIPTION { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RECEIPT_DETAIL> RECEIPT_DETAIL { get; set; }
     }
 }
