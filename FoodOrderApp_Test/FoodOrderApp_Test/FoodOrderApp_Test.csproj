@@ -98,6 +98,9 @@
     <Compile Include="Views\UserControls\MenuUC.xaml.cs">
       <DependentUpon>MenuUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserControls\MenuUC_Test.xaml.cs">
+      <DependentUpon>MenuUC_Test.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserControls\ShoppingCartUC.xaml.cs">
       <DependentUpon>ShoppingCartUC.xaml</DependentUpon>
     </Compile>
@@ -167,6 +170,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\UserControls\MenuUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\MenuUC_Test.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
