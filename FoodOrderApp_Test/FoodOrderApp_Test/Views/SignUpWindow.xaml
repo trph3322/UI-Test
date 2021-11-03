@@ -23,7 +23,7 @@
         Foreground="{x:Null}"
         AllowsTransparency="True"
         WindowStyle="None"
-        WindowStartupLocation="CenterScreen" 
+        WindowStartupLocation="CenterScreen"
         ResizeMode="CanMinimize">
     <Grid>
         <Grid Margin="10">
@@ -40,8 +40,9 @@
                 VerticalContentAlignment="Center"
                 FontSize="40"
                 FontWeight="Bold"
-                Margin="0,40,0,0" />
+                Margin="0,30,0,0" />
                 <Grid Margin="10 20" VerticalAlignment="Stretch" HorizontalAlignment="Center">
+                    <!--email-->
                     <StackPanel Orientation="Vertical" VerticalAlignment="Stretch">
                         <StackPanel Orientation="Horizontal" Margin="0 20">
                             <materialDesign:PackIcon
@@ -73,6 +74,30 @@
                                 </TextBox.Text>
                             </TextBox>
                         </StackPanel>
+                        <!--số điện thoại-->
+                        <StackPanel Orientation="Horizontal" Margin="0 20">
+                            <materialDesign:PackIcon
+                                    Kind="Phone"
+                                    Width="30"
+                                    Height="30"
+                                    Foreground="{StaticResource Gray}"
+                                    VerticalAlignment="Center"
+                                    Margin="10,10,20,-18" />
+                            <TextBox
+                                materialDesign:HintAssist.Hint="Số điện thoại"
+                                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                Foreground="Black"
+                                FontSize="16"
+                                FontWeight="Medium"
+                                materialDesign:HintAssist.Foreground="{StaticResource Gray}"
+                                materialDesign:TextFieldAssist.UnderlineBrush="{StaticResource Gray}"
+                                Width="250"
+                                VerticalContentAlignment="Center"
+                                Height="50"
+                                Padding="2,0,0,0">
+                            </TextBox>
+                        </StackPanel>
+                        <!--tài khoản-->
                         <StackPanel Orientation="Horizontal" Margin="0 20">
                             <materialDesign:PackIcon
                                     Kind="Account"
@@ -104,6 +129,7 @@
                                 </TextBox.Text>
                             </TextBox>
                         </StackPanel>
+                        <!--password-->
                         <StackPanel Orientation="Horizontal" Margin="0 20">
                             <materialDesign:PackIcon
                                     Kind="Password"
@@ -126,6 +152,7 @@
                                     FontWeight="Medium"
                                     Padding="2,0,0,0" />
                         </StackPanel>
+                        <!--repassword-->
                         <StackPanel Orientation="Horizontal" Margin="0 20">
                             <materialDesign:PackIcon
                                     Kind="Password"
@@ -153,7 +180,7 @@
                             Content="Đăng ký"
                             Width="270"
                             Height="40"
-                            Margin="0 50 0 0"
+                            Margin="0 20 0 0"
                             FontSize="20"
                             Foreground="White">
                         </Button>
@@ -161,13 +188,13 @@
                 </Grid>
             </StackPanel>
         </Grid>
-        
-        <Rectangle 
+
+        <Rectangle
             Fill="White"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"
-            RadiusY="10" 
-            RadiusX="10" 
+            RadiusY="10"
+            RadiusX="10"
             Panel.ZIndex="-2"
             Effect="{StaticResource dropShadow}"
             Margin="10">
