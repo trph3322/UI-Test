@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:FoodOrderApp_Test.Views.UserControls"
              mc:Ignorable="d"
-             Height="450" Width="800"
+             Height="769" Width="1049"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              TextElement.Foreground="{DynamicResource MaterialDesignBody}"
              TextElement.FontWeight="Regular"
@@ -34,34 +34,1096 @@
                     TextWrapping="Wrap"
                     VerticalScrollBarVisibility="Disabled"
                     materialDesign:HintAssist.Hint="Search"
-                    Margin="20 10" />
+                    Margin="20 10"
+                    FontSize="16" />
                 <!--Filter-->
                 <ComboBox Height="50" Width="150"
-                          materialDesign:HintAssist.Hint="Filter"
                           VerticalAlignment="Top"
                           HorizontalAlignment="Center"
                           Margin="10"
                           Foreground="Black"
-                          Background="Transparent">
+                          Background="White"
+                          Text="Filter"
+                          FontSize="14">
+
                     <ComboBoxItem>
-                        <CheckBox>Giá tăng</CheckBox>
+                        <TextBlock>Giá tăng</TextBlock>
                     </ComboBoxItem>
                     <ComboBoxItem>
-                        <CheckBox>Giá giảm</CheckBox>
-                    </ComboBoxItem>
-                    <ComboBoxItem>
-                        <CheckBox>Khuyến mãi</CheckBox>
+                        <TextBlock> giá giảm</TextBlock>
                     </ComboBoxItem>
                 </ComboBox>
             </StackPanel>
             <!--item panel-->
-            <ScrollViewer Grid.Row="1">
-                <WrapPanel>
-                    <TextBlock Foreground="Black">
-                        Đang chưa biét xài search với filter style như nào
-                    </TextBlock>
-                </WrapPanel>
-            </ScrollViewer>
+            <!--item template-->
+            <ListView  Width="1050" Height="auto" Grid.Row="1">
+                <ScrollViewer Width="1025" Height="auto" CanContentScroll="True" Grid.Row="1">
+                    <WrapPanel Margin="10" FlowDirection="LeftToRight">
+                        <Border Width="180" Height="250" Background="White" CornerRadius="10" Margin="30 20">
+                            <StackPanel>
+
+                                <!--image-->
+
+                                <Border Width="179"
+                                        Height="130"
+                                        Margin="0"
+                                        CornerRadius="10" BorderThickness="0,0,0,0">
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="food.jpg" />
+                                    </Border.Background>
+                                </Border>
+                                <Grid Height="120">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0">
+
+                                        <!--tên món ăn-->
+
+                                        <TextBlock
+                                            Margin="5 5 0 10"
+                                            Foreground="Black"
+                                            FontWeight="Bold"
+                                            FontSize="16"
+                                            Height="auto"
+                                            TextWrapping="Wrap"
+                                            VerticalAlignment="Center">
+                                            bánh mì nướng muối ớt tôm tôtm
+                                        </TextBlock>
+
+                                        <!--số tiền-->
+
+                                        <TextBlock
+                                            Margin="10 5"
+                                            Foreground="Black"
+                                            FontSize="14"
+                                            FontWeight="Medium"
+                                            Text="100.00$"
+                                            VerticalAlignment="Center">
+                                        </TextBlock>
+                                    </StackPanel>
+
+                                    <!--bấm thêm vào giỏ hàng-->
+
+                                    <ToggleButton
+                                        Padding="5 0"
+                                        Grid.Column="1"
+                                      Content="+"
+                                      Style="{StaticResource MaterialDesignActionLightToggleButton}"
+                                      IsChecked="False"
+                                      ToolTip="Thêm món ăn"
+                                        Width="30"
+                                        Height="30" />
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                        <Border Width="180" Height="250" Background="White" CornerRadius="10" Margin="30 20">
+                            <StackPanel>
+
+                                <!--image-->
+
+                                <Border Width="179"
+                                        Height="130"
+                                        Margin="0"
+                                        CornerRadius="10" BorderThickness="0,0,0,0">
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="food.jpg" />
+                                    </Border.Background>
+                                </Border>
+                                <Grid Height="120">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0">
+
+                                        <!--tên món ăn-->
+
+                                        <TextBlock
+                                            Margin="5 5 0 10"
+                                            Foreground="Black"
+                                            FontWeight="Bold"
+                                            FontSize="16"
+                                            Height="auto"
+                                            TextWrapping="Wrap"
+                                            VerticalAlignment="Center">
+                                            bánh mì nướng muối ớt tôm tôtm
+                                        </TextBlock>
+
+                                        <!--số tiền-->
+
+                                        <TextBlock
+                                            Margin="10 5"
+                                            Foreground="Black"
+                                            FontSize="14"
+                                            FontWeight="Medium"
+                                            Text="100.00$"
+                                            VerticalAlignment="Center">
+                                        </TextBlock>
+                                    </StackPanel>
+
+                                    <!--bấm thêm vào giỏ hàng-->
+
+                                    <ToggleButton
+                                        Padding="5 0"
+                                        Grid.Column="1"
+                                      Content="+"
+                                      Style="{StaticResource MaterialDesignActionLightToggleButton}"
+                                      IsChecked="False"
+                                      ToolTip="Thêm món ăn"
+                                        Width="30"
+                                        Height="30" />
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                        <Border Width="180" Height="250" Background="White" CornerRadius="10" Margin="30 20">
+                            <StackPanel>
+
+                                <!--image-->
+
+                                <Border Width="179"
+                                        Height="130"
+                                        Margin="0"
+                                        CornerRadius="10" BorderThickness="0,0,0,0">
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="food.jpg" />
+                                    </Border.Background>
+                                </Border>
+                                <Grid Height="120">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0">
+
+                                        <!--tên món ăn-->
+
+                                        <TextBlock
+                                            Margin="5 5 0 10"
+                                            Foreground="Black"
+                                            FontWeight="Bold"
+                                            FontSize="16"
+                                            Height="auto"
+                                            TextWrapping="Wrap"
+                                            VerticalAlignment="Center">
+                                            bánh mì nướng muối ớt tôm tôtm
+                                        </TextBlock>
+
+                                        <!--số tiền-->
+
+                                        <TextBlock
+                                            Margin="10 5"
+                                            Foreground="Black"
+                                            FontSize="14"
+                                            FontWeight="Medium"
+                                            Text="100.00$"
+                                            VerticalAlignment="Center">
+                                        </TextBlock>
+                                    </StackPanel>
+
+                                    <!--bấm thêm vào giỏ hàng-->
+
+                                    <ToggleButton
+                                        Padding="5 0"
+                                        Grid.Column="1"
+                                      Content="+"
+                                      Style="{StaticResource MaterialDesignActionLightToggleButton}"
+                                      IsChecked="False"
+                                      ToolTip="Thêm món ăn"
+                                        Width="30"
+                                        Height="30" />
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                        <Border Width="180" Height="250" Background="White" CornerRadius="10" Margin="30 20">
+                            <StackPanel>
+
+                                <!--image-->
+
+                                <Border Width="179"
+                                        Height="130"
+                                        Margin="0"
+                                        CornerRadius="10" BorderThickness="0,0,0,0">
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="food.jpg" />
+                                    </Border.Background>
+                                </Border>
+                                <Grid Height="120">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0">
+
+                                        <!--tên món ăn-->
+
+                                        <TextBlock
+                                            Margin="5 5 0 10"
+                                            Foreground="Black"
+                                            FontWeight="Bold"
+                                            FontSize="16"
+                                            Height="auto"
+                                            TextWrapping="Wrap"
+                                            VerticalAlignment="Center">
+                                            bánh mì nướng muối ớt tôm tôtm
+                                        </TextBlock>
+
+                                        <!--số tiền-->
+
+                                        <TextBlock
+                                            Margin="10 5"
+                                            Foreground="Black"
+                                            FontSize="14"
+                                            FontWeight="Medium"
+                                            Text="100.00$"
+                                            VerticalAlignment="Center">
+                                        </TextBlock>
+                                    </StackPanel>
+
+                                    <!--bấm thêm vào giỏ hàng-->
+
+                                    <ToggleButton
+                                        Padding="5 0"
+                                        Grid.Column="1"
+                                      Content="+"
+                                      Style="{StaticResource MaterialDesignActionLightToggleButton}"
+                                      IsChecked="False"
+                                      ToolTip="Thêm món ăn"
+                                        Width="30"
+                                        Height="30" />
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                        <Border Width="180" Height="250" Background="White" CornerRadius="10" Margin="30 20">
+                            <StackPanel>
+
+                                <!--image-->
+
+                                <Border Width="179"
+                                        Height="130"
+                                        Margin="0"
+                                        CornerRadius="10" BorderThickness="0,0,0,0">
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="food.jpg" />
+                                    </Border.Background>
+                                </Border>
+                                <Grid Height="120">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0">
+
+                                        <!--tên món ăn-->
+
+                                        <TextBlock
+                                            Margin="5 5 0 10"
+                                            Foreground="Black"
+                                            FontWeight="Bold"
+                                            FontSize="16"
+                                            Height="auto"
+                                            TextWrapping="Wrap"
+                                            VerticalAlignment="Center">
+                                            bánh mì nướng muối ớt tôm tôtm
+                                        </TextBlock>
+
+                                        <!--số tiền-->
+
+                                        <TextBlock
+                                            Margin="10 5"
+                                            Foreground="Black"
+                                            FontSize="14"
+                                            FontWeight="Medium"
+                                            Text="100.00$"
+                                            VerticalAlignment="Center">
+                                        </TextBlock>
+                                    </StackPanel>
+
+                                    <!--bấm thêm vào giỏ hàng-->
+
+                                    <ToggleButton
+                                        Padding="5 0"
+                                        Grid.Column="1"
+                                      Content="+"
+                                      Style="{StaticResource MaterialDesignActionLightToggleButton}"
+                                      IsChecked="False"
+                                      ToolTip="Thêm món ăn"
+                                        Width="30"
+                                        Height="30" />
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                        <Border Width="180" Height="250" Background="White" CornerRadius="10" Margin="30 20">
+                            <StackPanel>
+
+                                <!--image-->
+
+                                <Border Width="179"
+                                        Height="130"
+                                        Margin="0"
+                                        CornerRadius="10" BorderThickness="0,0,0,0">
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="food.jpg" />
+                                    </Border.Background>
+                                </Border>
+                                <Grid Height="120">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0">
+
+                                        <!--tên món ăn-->
+
+                                        <TextBlock
+                                            Margin="5 5 0 10"
+                                            Foreground="Black"
+                                            FontWeight="Bold"
+                                            FontSize="16"
+                                            Height="auto"
+                                            TextWrapping="Wrap"
+                                            VerticalAlignment="Center">
+                                            bánh mì nướng muối ớt tôm tôtm
+                                        </TextBlock>
+
+                                        <!--số tiền-->
+
+                                        <TextBlock
+                                            Margin="10 5"
+                                            Foreground="Black"
+                                            FontSize="14"
+                                            FontWeight="Medium"
+                                            Text="100.00$"
+                                            VerticalAlignment="Center">
+                                        </TextBlock>
+                                    </StackPanel>
+
+                                    <!--bấm thêm vào giỏ hàng-->
+
+                                    <ToggleButton
+                                        Padding="5 0"
+                                        Grid.Column="1"
+                                      Content="+"
+                                      Style="{StaticResource MaterialDesignActionLightToggleButton}"
+                                      IsChecked="False"
+                                      ToolTip="Thêm món ăn"
+                                        Width="30"
+                                        Height="30" />
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                        <Border Width="180" Height="250" Background="White" CornerRadius="10" Margin="30 20">
+                            <StackPanel>
+
+                                <!--image-->
+
+                                <Border Width="179"
+                                        Height="130"
+                                        Margin="0"
+                                        CornerRadius="10" BorderThickness="0,0,0,0">
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="food.jpg" />
+                                    </Border.Background>
+                                </Border>
+                                <Grid Height="120">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0">
+
+                                        <!--tên món ăn-->
+
+                                        <TextBlock
+                                            Margin="5 5 0 10"
+                                            Foreground="Black"
+                                            FontWeight="Bold"
+                                            FontSize="16"
+                                            Height="auto"
+                                            TextWrapping="Wrap"
+                                            VerticalAlignment="Center">
+                                            bánh mì nướng muối ớt tôm tôtm
+                                        </TextBlock>
+
+                                        <!--số tiền-->
+
+                                        <TextBlock
+                                            Margin="10 5"
+                                            Foreground="Black"
+                                            FontSize="14"
+                                            FontWeight="Medium"
+                                            Text="100.00$"
+                                            VerticalAlignment="Center">
+                                        </TextBlock>
+                                    </StackPanel>
+
+                                    <!--bấm thêm vào giỏ hàng-->
+
+                                    <ToggleButton
+                                        Padding="5 0"
+                                        Grid.Column="1"
+                                      Content="+"
+                                      Style="{StaticResource MaterialDesignActionLightToggleButton}"
+                                      IsChecked="False"
+                                      ToolTip="Thêm món ăn"
+                                        Width="30"
+                                        Height="30" />
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                        <Border Width="180" Height="250" Background="White" CornerRadius="10" Margin="30 20">
+                            <StackPanel>
+
+                                <!--image-->
+
+                                <Border Width="179"
+                                        Height="130"
+                                        Margin="0"
+                                        CornerRadius="10" BorderThickness="0,0,0,0">
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="food.jpg" />
+                                    </Border.Background>
+                                </Border>
+                                <Grid Height="120">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0">
+
+                                        <!--tên món ăn-->
+
+                                        <TextBlock
+                                            Margin="5 5 0 10"
+                                            Foreground="Black"
+                                            FontWeight="Bold"
+                                            FontSize="16"
+                                            Height="auto"
+                                            TextWrapping="Wrap"
+                                            VerticalAlignment="Center">
+                                            bánh mì nướng muối ớt tôm tôtm
+                                        </TextBlock>
+
+                                        <!--số tiền-->
+
+                                        <TextBlock
+                                            Margin="10 5"
+                                            Foreground="Black"
+                                            FontSize="14"
+                                            FontWeight="Medium"
+                                            Text="100.00$"
+                                            VerticalAlignment="Center">
+                                        </TextBlock>
+                                    </StackPanel>
+
+                                    <!--bấm thêm vào giỏ hàng-->
+
+                                    <ToggleButton
+                                        Padding="5 0"
+                                        Grid.Column="1"
+                                      Content="+"
+                                      Style="{StaticResource MaterialDesignActionLightToggleButton}"
+                                      IsChecked="False"
+                                      ToolTip="Thêm món ăn"
+                                        Width="30"
+                                        Height="30" />
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                        <Border Width="180" Height="250" Background="White" CornerRadius="10" Margin="30 20">
+                            <StackPanel>
+
+                                <!--image-->
+
+                                <Border Width="179"
+                                        Height="130"
+                                        Margin="0"
+                                        CornerRadius="10" BorderThickness="0,0,0,0">
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="food.jpg" />
+                                    </Border.Background>
+                                </Border>
+                                <Grid Height="120">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0">
+
+                                        <!--tên món ăn-->
+
+                                        <TextBlock
+                                            Margin="5 5 0 10"
+                                            Foreground="Black"
+                                            FontWeight="Bold"
+                                            FontSize="16"
+                                            Height="auto"
+                                            TextWrapping="Wrap"
+                                            VerticalAlignment="Center">
+                                            bánh mì nướng muối ớt tôm tôtm
+                                        </TextBlock>
+
+                                        <!--số tiền-->
+
+                                        <TextBlock
+                                            Margin="10 5"
+                                            Foreground="Black"
+                                            FontSize="14"
+                                            FontWeight="Medium"
+                                            Text="100.00$"
+                                            VerticalAlignment="Center">
+                                        </TextBlock>
+                                    </StackPanel>
+
+                                    <!--bấm thêm vào giỏ hàng-->
+
+                                    <ToggleButton
+                                        Padding="5 0"
+                                        Grid.Column="1"
+                                      Content="+"
+                                      Style="{StaticResource MaterialDesignActionLightToggleButton}"
+                                      IsChecked="False"
+                                      ToolTip="Thêm món ăn"
+                                        Width="30"
+                                        Height="30" />
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                        <Border Width="180" Height="250" Background="White" CornerRadius="10" Margin="30 20">
+                            <StackPanel>
+
+                                <!--image-->
+
+                                <Border Width="179"
+                                        Height="130"
+                                        Margin="0"
+                                        CornerRadius="10" BorderThickness="0,0,0,0">
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="food.jpg" />
+                                    </Border.Background>
+                                </Border>
+                                <Grid Height="120">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0">
+
+                                        <!--tên món ăn-->
+
+                                        <TextBlock
+                                            Margin="5 5 0 10"
+                                            Foreground="Black"
+                                            FontWeight="Bold"
+                                            FontSize="16"
+                                            Height="auto"
+                                            TextWrapping="Wrap"
+                                            VerticalAlignment="Center">
+                                            bánh mì nướng muối ớt tôm tôtm
+                                        </TextBlock>
+
+                                        <!--số tiền-->
+
+                                        <TextBlock
+                                            Margin="10 5"
+                                            Foreground="Black"
+                                            FontSize="14"
+                                            FontWeight="Medium"
+                                            Text="100.00$"
+                                            VerticalAlignment="Center">
+                                        </TextBlock>
+                                    </StackPanel>
+
+                                    <!--bấm thêm vào giỏ hàng-->
+
+                                    <ToggleButton
+                                        Padding="5 0"
+                                        Grid.Column="1"
+                                      Content="+"
+                                      Style="{StaticResource MaterialDesignActionLightToggleButton}"
+                                      IsChecked="False"
+                                      ToolTip="Thêm món ăn"
+                                        Width="30"
+                                        Height="30" />
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                        <Border Width="180" Height="250" Background="White" CornerRadius="10" Margin="30 20">
+                            <StackPanel>
+
+                                <!--image-->
+
+                                <Border Width="179"
+                                        Height="130"
+                                        Margin="0"
+                                        CornerRadius="10" BorderThickness="0,0,0,0">
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="food.jpg" />
+                                    </Border.Background>
+                                </Border>
+                                <Grid Height="120">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0">
+
+                                        <!--tên món ăn-->
+
+                                        <TextBlock
+                                            Margin="5 5 0 10"
+                                            Foreground="Black"
+                                            FontWeight="Bold"
+                                            FontSize="16"
+                                            Height="auto"
+                                            TextWrapping="Wrap"
+                                            VerticalAlignment="Center">
+                                            bánh mì nướng muối ớt tôm tôtm
+                                        </TextBlock>
+
+                                        <!--số tiền-->
+
+                                        <TextBlock
+                                            Margin="10 5"
+                                            Foreground="Black"
+                                            FontSize="14"
+                                            FontWeight="Medium"
+                                            Text="100.00$"
+                                            VerticalAlignment="Center">
+                                        </TextBlock>
+                                    </StackPanel>
+
+                                    <!--bấm thêm vào giỏ hàng-->
+
+                                    <ToggleButton
+                                        Padding="5 0"
+                                        Grid.Column="1"
+                                      Content="+"
+                                      Style="{StaticResource MaterialDesignActionLightToggleButton}"
+                                      IsChecked="False"
+                                      ToolTip="Thêm món ăn"
+                                        Width="30"
+                                        Height="30" />
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                        <Border Width="180" Height="250" Background="White" CornerRadius="10" Margin="30 20">
+                            <StackPanel>
+
+                                <!--image-->
+
+                                <Border Width="179"
+                                        Height="130"
+                                        Margin="0"
+                                        CornerRadius="10" BorderThickness="0,0,0,0">
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="food.jpg" />
+                                    </Border.Background>
+                                </Border>
+                                <Grid Height="120">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0">
+
+                                        <!--tên món ăn-->
+
+                                        <TextBlock
+                                            Margin="5 5 0 10"
+                                            Foreground="Black"
+                                            FontWeight="Bold"
+                                            FontSize="16"
+                                            Height="auto"
+                                            TextWrapping="Wrap"
+                                            VerticalAlignment="Center">
+                                            bánh mì nướng muối ớt tôm tôtm
+                                        </TextBlock>
+
+                                        <!--số tiền-->
+
+                                        <TextBlock
+                                            Margin="10 5"
+                                            Foreground="Black"
+                                            FontSize="14"
+                                            FontWeight="Medium"
+                                            Text="100.00$"
+                                            VerticalAlignment="Center">
+                                        </TextBlock>
+                                    </StackPanel>
+
+                                    <!--bấm thêm vào giỏ hàng-->
+
+                                    <ToggleButton
+                                        Padding="5 0"
+                                        Grid.Column="1"
+                                      Content="+"
+                                      Style="{StaticResource MaterialDesignActionLightToggleButton}"
+                                      IsChecked="False"
+                                      ToolTip="Thêm món ăn"
+                                        Width="30"
+                                        Height="30" />
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                        <Border Width="180" Height="250" Background="White" CornerRadius="10" Margin="30 20">
+                            <StackPanel>
+
+                                <!--image-->
+
+                                <Border Width="179"
+                                        Height="130"
+                                        Margin="0"
+                                        CornerRadius="10" BorderThickness="0,0,0,0">
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="food.jpg" />
+                                    </Border.Background>
+                                </Border>
+                                <Grid Height="120">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0">
+
+                                        <!--tên món ăn-->
+
+                                        <TextBlock
+                                            Margin="5 5 0 10"
+                                            Foreground="Black"
+                                            FontWeight="Bold"
+                                            FontSize="16"
+                                            Height="auto"
+                                            TextWrapping="Wrap"
+                                            VerticalAlignment="Center">
+                                            bánh mì nướng muối ớt tôm tôtm
+                                        </TextBlock>
+
+                                        <!--số tiền-->
+
+                                        <TextBlock
+                                            Margin="10 5"
+                                            Foreground="Black"
+                                            FontSize="14"
+                                            FontWeight="Medium"
+                                            Text="100.00$"
+                                            VerticalAlignment="Center">
+                                        </TextBlock>
+                                    </StackPanel>
+
+                                    <!--bấm thêm vào giỏ hàng-->
+
+                                    <ToggleButton
+                                        Padding="5 0"
+                                        Grid.Column="1"
+                                      Content="+"
+                                      Style="{StaticResource MaterialDesignActionLightToggleButton}"
+                                      IsChecked="False"
+                                      ToolTip="Thêm món ăn"
+                                        Width="30"
+                                        Height="30" />
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                        <Border Width="180" Height="250" Background="White" CornerRadius="10" Margin="30 20">
+                            <StackPanel>
+
+                                <!--image-->
+
+                                <Border Width="179"
+                                        Height="130"
+                                        Margin="0"
+                                        CornerRadius="10" BorderThickness="0,0,0,0">
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="food.jpg" />
+                                    </Border.Background>
+                                </Border>
+                                <Grid Height="120">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0">
+
+                                        <!--tên món ăn-->
+
+                                        <TextBlock
+                                            Margin="5 5 0 10"
+                                            Foreground="Black"
+                                            FontWeight="Bold"
+                                            FontSize="16"
+                                            Height="auto"
+                                            TextWrapping="Wrap"
+                                            VerticalAlignment="Center">
+                                            bánh mì nướng muối ớt tôm tôtm
+                                        </TextBlock>
+
+                                        <!--số tiền-->
+
+                                        <TextBlock
+                                            Margin="10 5"
+                                            Foreground="Black"
+                                            FontSize="14"
+                                            FontWeight="Medium"
+                                            Text="100.00$"
+                                            VerticalAlignment="Center">
+                                        </TextBlock>
+                                    </StackPanel>
+
+                                    <!--bấm thêm vào giỏ hàng-->
+
+                                    <ToggleButton
+                                        Padding="5 0"
+                                        Grid.Column="1"
+                                      Content="+"
+                                      Style="{StaticResource MaterialDesignActionLightToggleButton}"
+                                      IsChecked="False"
+                                      ToolTip="Thêm món ăn"
+                                        Width="30"
+                                        Height="30" />
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                        <Border Width="180" Height="250" Background="White" CornerRadius="10" Margin="30 20">
+                            <StackPanel>
+
+                                <!--image-->
+
+                                <Border Width="179"
+                                        Height="130"
+                                        Margin="0"
+                                        CornerRadius="10" BorderThickness="0,0,0,0">
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="food.jpg" />
+                                    </Border.Background>
+                                </Border>
+                                <Grid Height="120">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0">
+
+                                        <!--tên món ăn-->
+
+                                        <TextBlock
+                                            Margin="5 5 0 10"
+                                            Foreground="Black"
+                                            FontWeight="Bold"
+                                            FontSize="16"
+                                            Height="auto"
+                                            TextWrapping="Wrap"
+                                            VerticalAlignment="Center">
+                                            bánh mì nướng muối ớt tôm tôtm
+                                        </TextBlock>
+
+                                        <!--số tiền-->
+
+                                        <TextBlock
+                                            Margin="10 5"
+                                            Foreground="Black"
+                                            FontSize="14"
+                                            FontWeight="Medium"
+                                            Text="100.00$"
+                                            VerticalAlignment="Center">
+                                        </TextBlock>
+                                    </StackPanel>
+
+                                    <!--bấm thêm vào giỏ hàng-->
+
+                                    <ToggleButton
+                                        Padding="5 0"
+                                        Grid.Column="1"
+                                      Content="+"
+                                      Style="{StaticResource MaterialDesignActionLightToggleButton}"
+                                      IsChecked="False"
+                                      ToolTip="Thêm món ăn"
+                                        Width="30"
+                                        Height="30" />
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                        <Border Width="180" Height="250" Background="White" CornerRadius="10" Margin="30 20">
+                            <StackPanel>
+
+                                <!--image-->
+
+                                <Border Width="179"
+                                        Height="130"
+                                        Margin="0"
+                                        CornerRadius="10" BorderThickness="0,0,0,0">
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="food.jpg" />
+                                    </Border.Background>
+                                </Border>
+                                <Grid Height="120">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0">
+
+                                        <!--tên món ăn-->
+
+                                        <TextBlock
+                                            Margin="5 5 0 10"
+                                            Foreground="Black"
+                                            FontWeight="Bold"
+                                            FontSize="16"
+                                            Height="auto"
+                                            TextWrapping="Wrap"
+                                            VerticalAlignment="Center">
+                                            bánh mì nướng muối ớt tôm tôtm
+                                        </TextBlock>
+
+                                        <!--số tiền-->
+
+                                        <TextBlock
+                                            Margin="10 5"
+                                            Foreground="Black"
+                                            FontSize="14"
+                                            FontWeight="Medium"
+                                            Text="100.00$"
+                                            VerticalAlignment="Center">
+                                        </TextBlock>
+                                    </StackPanel>
+
+                                    <!--bấm thêm vào giỏ hàng-->
+
+                                    <ToggleButton
+                                        Padding="5 0"
+                                        Grid.Column="1"
+                                      Content="+"
+                                      Style="{StaticResource MaterialDesignActionLightToggleButton}"
+                                      IsChecked="False"
+                                      ToolTip="Thêm món ăn"
+                                        Width="30"
+                                        Height="30" />
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                        <Border Width="180" Height="250" Background="White" CornerRadius="10" Margin="30 20">
+                            <StackPanel>
+
+                                <!--image-->
+
+                                <Border Width="179"
+                                        Height="130"
+                                        Margin="0"
+                                        CornerRadius="10" BorderThickness="0,0,0,0">
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="food.jpg" />
+                                    </Border.Background>
+                                </Border>
+                                <Grid Height="120">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0">
+
+                                        <!--tên món ăn-->
+
+                                        <TextBlock
+                                            Margin="5 5 0 10"
+                                            Foreground="Black"
+                                            FontWeight="Bold"
+                                            FontSize="16"
+                                            Height="auto"
+                                            TextWrapping="Wrap"
+                                            VerticalAlignment="Center">
+                                            bánh mì nướng muối ớt tôm tôtm
+                                        </TextBlock>
+
+                                        <!--số tiền-->
+
+                                        <TextBlock
+                                            Margin="10 5"
+                                            Foreground="Black"
+                                            FontSize="14"
+                                            FontWeight="Medium"
+                                            Text="100.00$"
+                                            VerticalAlignment="Center">
+                                        </TextBlock>
+                                    </StackPanel>
+
+                                    <!--bấm thêm vào giỏ hàng-->
+
+                                    <ToggleButton
+                                        Padding="5 0"
+                                        Grid.Column="1"
+                                      Content="+"
+                                      Style="{StaticResource MaterialDesignActionLightToggleButton}"
+                                      IsChecked="False"
+                                      ToolTip="Thêm món ăn"
+                                        Width="30"
+                                        Height="30" />
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                        <Border Width="180" Height="250" Background="White" CornerRadius="10" Margin="30 20">
+                            <StackPanel>
+
+                                <!--image-->
+
+                                <Border Width="179"
+                                        Height="130"
+                                        Margin="0"
+                                        CornerRadius="10" BorderThickness="0,0,0,0">
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="food.jpg" />
+                                    </Border.Background>
+                                </Border>
+                                <Grid Height="120">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0">
+
+                                        <!--tên món ăn-->
+
+                                        <TextBlock
+                                            Margin="5 5 0 10"
+                                            Foreground="Black"
+                                            FontWeight="Bold"
+                                            FontSize="16"
+                                            Height="auto"
+                                            TextWrapping="Wrap"
+                                            VerticalAlignment="Center">
+                                            bánh mì nướng muối ớt tôm tôtm
+                                        </TextBlock>
+
+                                        <!--số tiền-->
+
+                                        <TextBlock
+                                            Margin="10 5"
+                                            Foreground="Black"
+                                            FontSize="14"
+                                            FontWeight="Medium"
+                                            Text="100.00$"
+                                            VerticalAlignment="Center">
+                                        </TextBlock>
+                                    </StackPanel>
+
+                                    <!--bấm thêm vào giỏ hàng-->
+
+                                    <ToggleButton
+                                        Padding="5 0"
+                                        Grid.Column="1"
+                                      Content="+"
+                                      Style="{StaticResource MaterialDesignActionLightToggleButton}"
+                                      IsChecked="False"
+                                      ToolTip="Thêm món ăn"
+                                        Width="30"
+                                        Height="30" />
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                    </WrapPanel>
+                </ScrollViewer>
+            </ListView>
         </Grid>
         <Rectangle
             Fill="LightGray"

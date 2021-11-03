@@ -17,7 +17,7 @@
              xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
     <Grid>
-        <Grid>
+        <Grid Background="White">
             <StackPanel>
                 <Grid
                 x:Name="grdSelectImage"
