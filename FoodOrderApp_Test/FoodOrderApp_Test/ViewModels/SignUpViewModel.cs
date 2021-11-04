@@ -28,7 +28,7 @@ namespace FoodOrderApp_Test.ViewModels
         public void swichTab(SignUpWindow parameter)
         {
             parameter.grdActivation.Visibility = System.Windows.Visibility.Collapsed;
-            parameter.transitionContentSlide.Visibility = System.Windows.Visibility.Visible;
+            parameter.transitionContentSlideInside.Visibility = System.Windows.Visibility.Visible;
         }
 
         public void SignUp(SignUpWindow parameter)

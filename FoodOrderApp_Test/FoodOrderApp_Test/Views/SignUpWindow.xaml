@@ -25,11 +25,13 @@
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         ResizeMode="CanMinimize">
-    <Grid>
-        <Grid Margin="10">
-            <uc:ControlBarUC></uc:ControlBarUC>
-            <StackPanel>
-                <Label
+
+    <materialDesign:TransitioningContent x:Name="transitionContentSlide" OpeningEffect="{materialDesign:TransitionEffect Kind=ExpandIn,Duration=0:0:0.1}">
+        <Grid>
+            <Grid Margin="10">
+                <uc:ControlBarUC></uc:ControlBarUC>
+                <StackPanel>
+                    <Label
                 x:Name="lblSignUp"
                 Content="Đăng ký"
                 HorizontalAlignment="Center"
@@ -41,25 +43,25 @@
                 FontSize="40"
                 FontWeight="Bold"
                 Margin="0,30,0,0" />
-                <!--chưa xử lí mã xác nhận-->
-                <!--bước xác nhận mã xác nhận-->
-                <Grid
+                    <!--chưa xử lí mã xác nhận-->
+                    <!--bước xác nhận mã xác nhận-->
+                    <Grid
                     x:Name="grdActivation"
                     Margin="10 100"
                       VerticalAlignment="Center"
                       HorizontalAlignment="Center"
                       Visibility="Visible">
-                    <StackPanel Orientation="Vertical" VerticalAlignment="Stretch">
-                        <!--email-->
-                        <StackPanel Orientation="Horizontal" Margin="0 20">
-                            <materialDesign:PackIcon
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Stretch">
+                            <!--email-->
+                            <StackPanel Orientation="Horizontal" Margin="0 20">
+                                <materialDesign:PackIcon
                                     Kind="Gmail"
                                     Width="30"
                                     Height="30"
                                     Foreground="{StaticResource Gray}"
                                     VerticalAlignment="Center"
                                     Margin="10,10,20,-18" />
-                            <TextBox
+                                <TextBox
                                 materialDesign:HintAssist.Hint="Email"
                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                 Foreground="Black"
@@ -71,9 +73,9 @@
                                 VerticalContentAlignment="Center"
                                 Height="50"
                                 Padding="2,0,0,0">
-                            </TextBox>
-                        </StackPanel>
-                        <Button
+                                </TextBox>
+                            </StackPanel>
+                            <Button
                             Style="{StaticResource GreenBtn}"
                             Content="Lấy mã xác nhận"
                             Width="200"
@@ -81,17 +83,17 @@
                             Margin="0 0 0 0"
                             FontSize="20"
                             Foreground="White">
-                        </Button>
-                        <!--khung nhập mã xác nhận-->
-                        <StackPanel Orientation="Horizontal" Margin="0 20">
-                            <materialDesign:PackIcon
+                            </Button>
+                            <!--khung nhập mã xác nhận-->
+                            <StackPanel Orientation="Horizontal" Margin="0 20">
+                                <materialDesign:PackIcon
                                     Kind="Code"
                                     Width="30"
                                     Height="30"
                                     Foreground="{StaticResource Gray}"
                                     VerticalAlignment="Center"
                                     Margin="10,10,20,-18" />
-                            <TextBox
+                                <TextBox
                                 x:Name="activationCode"
                                 materialDesign:HintAssist.Hint="Mã xác nhận"
                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
@@ -104,9 +106,9 @@
                                 VerticalContentAlignment="Center"
                                 Height="50"
                                 Padding="2,0,0,0">
-                            </TextBox>
-                        </StackPanel>
-                        <Button
+                                </TextBox>
+                            </StackPanel>
+                            <Button
                             Command="{Binding SwichTabCommand}"
                             CommandParameter="{Binding ElementName=wdSignUp}"
                             Style="{StaticResource GreenBtn}"
@@ -116,30 +118,30 @@
                             Margin="0 0 0 0"
                             FontSize="20"
                             Foreground="White">
-                        </Button>
-                    </StackPanel>
-                </Grid>
-                <!--bước đã xác nhận thành công email và vào nhập thông tin tạo tài khoản-->
-                <materialDesign:TransitioningContent x:Name="transitionContentSlide" OpeningEffect="{materialDesign:TransitionEffect Kind=ExpandIn}"
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                    <!--bước đã xác nhận thành công email và vào nhập thông tin tạo tài khoản-->
+                    <materialDesign:TransitioningContent x:Name="transitionContentSlideInside" OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromLeft,Duration=0:0:0.2}"
                                                      Visibility="Collapsed">
-                    <Grid
+                        <Grid
                         x:Name="grdInformation"
                         Margin="10 50"
                         VerticalAlignment="Stretch"
                         HorizontalAlignment="Center"
                         Visibility="Visible">
-                        <StackPanel Orientation="Vertical"
+                            <StackPanel Orientation="Vertical"
                                     VerticalAlignment="Stretch">
-                            <!--số điện thoại-->
-                            <StackPanel Orientation="Horizontal" Margin="0 20">
-                                <materialDesign:PackIcon
+                                <!--số điện thoại-->
+                                <StackPanel Orientation="Horizontal" Margin="0 20">
+                                    <materialDesign:PackIcon
                                     Kind="Phone"
                                     Width="30"
                                     Height="30"
                                     Foreground="{StaticResource Gray}"
                                     VerticalAlignment="Center"
                                     Margin="10,10,20,-18" />
-                                <TextBox
+                                    <TextBox
                                 materialDesign:HintAssist.Hint="Số điện thoại"
                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                 Foreground="Black"
@@ -151,18 +153,18 @@
                                 VerticalContentAlignment="Center"
                                 Height="50"
                                 Padding="2,0,0,0">
-                                </TextBox>
-                            </StackPanel>
-                            <!--tài khoản-->
-                            <StackPanel Orientation="Horizontal" Margin="0 20">
-                                <materialDesign:PackIcon
+                                    </TextBox>
+                                </StackPanel>
+                                <!--tài khoản-->
+                                <StackPanel Orientation="Horizontal" Margin="0 20">
+                                    <materialDesign:PackIcon
                                     Kind="Account"
                                     Width="30"
                                     Height="30"
                                     Foreground="{StaticResource Gray}"
                                     VerticalAlignment="Center"
                                     Margin="10,10,20,-18" />
-                                <TextBox
+                                    <TextBox
                                 x:Name="txtUsername"
                                 materialDesign:HintAssist.Hint="Tài khoản"
                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
@@ -175,18 +177,18 @@
                                 VerticalContentAlignment="Center"
                                 Height="50"
                                 Padding="2,0,0,0">
-                                </TextBox>
-                            </StackPanel>
-                            <!--password-->
-                            <StackPanel Orientation="Horizontal" Margin="0 20">
-                                <materialDesign:PackIcon
+                                    </TextBox>
+                                </StackPanel>
+                                <!--password-->
+                                <StackPanel Orientation="Horizontal" Margin="0 20">
+                                    <materialDesign:PackIcon
                                     Kind="Password"
                                     Width="30"
                                     Height="30"
                                     Foreground="{StaticResource Gray}"
                                     VerticalAlignment="Center"
                                     Margin="10,10,20,-14" />
-                                <PasswordBox
+                                    <PasswordBox
                                   x:Name="PasswordBox"
                                   materialDesign:HintAssist.Hint="Mật khẩu"
                                   materialDesign:HintAssist.Foreground="{StaticResource Gray}"
@@ -199,17 +201,17 @@
                                     FontSize="16"
                                     FontWeight="Medium"
                                     Padding="2,0,0,0" />
-                            </StackPanel>
-                            <!--repassword-->
-                            <StackPanel Orientation="Horizontal" Margin="0 20">
-                                <materialDesign:PackIcon
+                                </StackPanel>
+                                <!--repassword-->
+                                <StackPanel Orientation="Horizontal" Margin="0 20">
+                                    <materialDesign:PackIcon
                                     Kind="Password"
                                     Width="30"
                                     Height="30"
                                     Foreground="{StaticResource Gray}"
                                     VerticalAlignment="Center"
                                     Margin="10,10,20,-14" />
-                                <PasswordBox
+                                    <PasswordBox
                                   x:Name="RePasswordBox"
                                   materialDesign:HintAssist.Hint="Nhập lại mật khẩu"
                                   materialDesign:HintAssist.Foreground="{StaticResource Gray}"
@@ -222,8 +224,8 @@
                                     FontSize="16"
                                     FontWeight="Medium"
                                     Padding="2,0,0,0" />
-                            </StackPanel>
-                            <Button
+                                </StackPanel>
+                                <Button
                             Style="{StaticResource GreenBtn}"
                             Content="Đăng ký"
                             Width="270"
@@ -231,14 +233,14 @@
                             Margin="0 20 0 0"
                             FontSize="20"
                             Foreground="White">
-                            </Button>
-                        </StackPanel>
-                    </Grid>
-                </materialDesign:TransitioningContent>
-            </StackPanel>
-        </Grid>
+                                </Button>
+                            </StackPanel>
+                        </Grid>
+                    </materialDesign:TransitioningContent>
+                </StackPanel>
+            </Grid>
 
-        <Rectangle
+            <Rectangle
             Fill="White"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"
@@ -247,6 +249,7 @@
             Panel.ZIndex="-2"
             Effect="{StaticResource dropShadow}"
             Margin="10">
-        </Rectangle>
-    </Grid>
+            </Rectangle>
+        </Grid>
+    </materialDesign:TransitioningContent>
 </Window>

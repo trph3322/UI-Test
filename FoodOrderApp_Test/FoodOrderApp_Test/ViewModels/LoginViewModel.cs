@@ -24,19 +24,19 @@ namespace FoodOrderApp_Test.ViewModels
 
         public void OpenForgotPasswordWindow(LoginWindow parameter)
         {
-            DoubleAnimation fadeIn = new DoubleAnimation(0.5, 1.0, new Duration(TimeSpan.FromSeconds(0.3)));
+            //DoubleAnimation fadeIn = new DoubleAnimation(0.5, 1.0, new Duration(TimeSpan.FromSeconds(0.3)));
 
             ForgotPasswordWindow forgotPasswordWindow = new ForgotPasswordWindow();
-            forgotPasswordWindow.BeginAnimation(Window.OpacityProperty, fadeIn);
+            //forgotPasswordWindow.BeginAnimation(Window.OpacityProperty, fadeIn);
             forgotPasswordWindow.ShowDialog();
         }
 
         public void OpenSignUpWindow(LoginWindow parameter)
         {
-            DoubleAnimation fadeIn = new DoubleAnimation(0.5, 1.0, new Duration(TimeSpan.FromSeconds(0.3)));
+            //DoubleAnimation fadeIn = new DoubleAnimation(0.5, 1.0, new Duration(TimeSpan.FromSeconds(0.3)));
 
             SignUpWindow signUpWindow = new SignUpWindow();
-            signUpWindow.BeginAnimation(Window.OpacityProperty, fadeIn);
+            //signUpWindow.BeginAnimation(Window.OpacityProperty, fadeIn);
             signUpWindow.ShowDialog();
         }
     } 
