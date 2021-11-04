@@ -52,7 +52,7 @@
                     <TextBlock Text="Restaurant" FontSize="20" FontWeight="Bold" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 0 0 20"></TextBlock>
                 </Grid>
 
-                <Separator Margin="20 151" ></Separator>
+                <Separator Margin="20 151" BorderBrush="Black" Height="3" ></Separator>
                 
                 <Grid Grid.Row="1">
                     
@@ -313,7 +313,7 @@
                     <uc:ControlBarUC></uc:ControlBarUC>
                 </Border>
 
-                <Border Grid.Row="1" CornerRadius="10" Background="#ECF0F1"></Border>
+                <Border Grid.Row="1" CornerRadius="10" Background="#FFF7F9F9"></Border>
             </Grid>
             
         </Grid>

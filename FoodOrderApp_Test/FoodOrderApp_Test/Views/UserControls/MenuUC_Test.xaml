@@ -64,7 +64,7 @@
                                     BorderThickness="0,0,0,0"
                                     Panel.ZIndex="100">
                             <Border.Background>
-                                <ImageBrush ImageSource="food.jpg" />
+                                <ImageBrush ImageSource="/Resources/Images/food.jpg" />
                             </Border.Background>
                         </Border>
                         <Border Width="180" Height="180" Background="White" CornerRadius="10" Margin="30 20">
