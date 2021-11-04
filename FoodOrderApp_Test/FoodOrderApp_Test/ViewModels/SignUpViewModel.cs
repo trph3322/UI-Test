@@ -14,6 +14,7 @@ namespace FoodOrderApp_Test.ViewModels
     internal class SignUpViewModel : MainViewmodel
     {
         public ICommand SignUpCommand { get; set; }
+        public ICommand SwichTabCommand { get; set; }
 
         private string userName;
         public string UserName { get => userName; set { userName = value; OnPropertyChanged(); } }
@@ -21,6 +22,13 @@ namespace FoodOrderApp_Test.ViewModels
         public SignUpViewModel()
         {
             SignUpCommand = new RelayCommand<SignUpWindow>((parameter) => true, (parameter) => SignUp(parameter));
+            SwichTabCommand = new RelayCommand<SignUpWindow>((parameter) => true, (parameter) => swichTab(parameter));
+        }
+
+        public void swichTab(SignUpWindow parameter)
+        {
+            parameter.grdActivation.Visibility = System.Windows.Visibility.Collapsed;
+            parameter.transitionContentSlide.Visibility = System.Windows.Visibility.Visible;
         }
 
         public void SignUp(SignUpWindow parameter)

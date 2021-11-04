@@ -79,6 +79,9 @@
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainViewmodel.cs" />
     <Compile Include="ViewModels\SignUpViewModel.cs" />
+    <Compile Include="Views\FoodDetailWindow.xaml.cs">
+      <DependentUpon>FoodDetailWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ForgotPasswordWindow.xaml.cs">
       <DependentUpon>ForgotPasswordWindow.xaml</DependentUpon>
     </Compile>
@@ -144,6 +147,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\XAML\Style.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FoodDetailWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
