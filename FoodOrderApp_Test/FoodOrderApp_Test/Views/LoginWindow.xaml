@@ -22,7 +22,7 @@
         AllowsTransparency="True" 
         WindowStyle="None" 
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
-        x:Name="wdLogin">
+        >
      
 
     <Grid>
@@ -79,7 +79,8 @@
                                         Margin="0 0 0 -5"/>
                                 <TextBox
                                         x:Name="txtUsername"
-                                        Text="{Binding Username}"
+                                        TabIndex="0"
+                                        Text="{Binding UserName}"
                                         materialDesign:HintAssist.Hint="Tài khoản"
                                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                         Foreground="Black"
@@ -94,10 +95,7 @@
                             </Grid>
 
                             <Grid Grid.Row="1">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="13*"/>
-                                    <ColumnDefinition Width="22*"/>
-                                </Grid.ColumnDefinitions>
+                                
                                 <materialDesign:PackIcon 
                                         Kind="Lock"
                                         Foreground="{StaticResource Gray}"
@@ -108,6 +106,7 @@
                                         Margin="0,0,0,-3.4"/>
                                 <PasswordBox
                                         x:Name="txtPassword"
+                                        TabIndex="1"
                                         materialDesign:HintAssist.Hint="Mật khẩu"
                                         Foreground="Black"
                                         FontSize="16"
@@ -117,18 +116,20 @@
                                         Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" 
                                         Width="230"
                                         VerticalAlignment="Bottom" 
-                                        HorizontalAlignment="Right" Grid.ColumnSpan="2" Margin="0,0,0,-0.4"/>
-                                        <i:Interaction.Triggers>
-                                            <i:EventTrigger EventName="PasswordChanged">
-                                                <i:InvokeCommandAction Command="{Binding PasswordChangedCommand}" 
+                                        HorizontalAlignment="Right" Grid.ColumnSpan="2" Margin="0,0,0,-0.4">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="PasswordChanged">
+                                            <i:InvokeCommandAction Command="{Binding PasswordChangedCommand}" 
                                                    CommandParameter="{Binding ElementName=txtPassword}"/>
                                             </i:EventTrigger>
-                                        </i:Interaction.Triggers>
+                                      </i:Interaction.Triggers>
+                                   </PasswordBox>
                             </Grid>
                         </Grid>
 
                         <Button
-                            Style="{StaticResource forgotPasswordBtn}"                            
+                            Style="{StaticResource forgotPasswordBtn}"     
+                            TabIndex="4"
                             Content="Quên mật khẩu"
                             FontSize="15"
                             Foreground="{StaticResource Gray}"
@@ -146,9 +147,10 @@
 
                         <Button
                             x:Name="btnLogin"
+                            TabIndex="2"
                             IsDefault="True"
-                            Command="{Binding LogInCommand}"
-                            CommandParameter="{Binding ElementName=wdLogin}"
+                            Command="{Binding OpenLogInWDCommand}"
+                            CommandParameter="{Binding ElementName=LoginWD}"
                             Style="{StaticResource GreenBtn}"
                             Content="Đăng nhập"
                             Width="270"
@@ -170,9 +172,8 @@
 
                         <Button
                             x:Name="btnSignUp"
-                            IsDefault="True"
-                            Command="{Binding SignUpCommand}"
-                            CommandParameter="{Binding ElementName=wdLogin}"
+                            TabIndex="3"
+                           
                             Style="{StaticResource GrayBtn}"
                             Content="Đăng ký"
                             Width="270"

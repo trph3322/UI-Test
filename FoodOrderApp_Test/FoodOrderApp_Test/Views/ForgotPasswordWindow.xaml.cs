@@ -23,5 +23,7 @@ namespace FoodOrderApp_Test.Views
         {
             InitializeComponent();
         }
+
+        
     }
 }
