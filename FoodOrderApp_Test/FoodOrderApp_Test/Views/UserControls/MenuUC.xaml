@@ -1,12 +1,11 @@
 ﻿<UserControl x:Class="FoodOrderApp_Test.Views.UserControls.MenuUC"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:local="clr-namespace:FoodOrderApp_Test.Views.UserControls"
              mc:Ignorable="d"
-             Height="450" Width="800"
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             Height="769" Width="1049"
              TextElement.Foreground="{DynamicResource MaterialDesignBody}"
              TextElement.FontWeight="Regular"
              TextElement.FontSize="13"
@@ -14,8 +13,7 @@
              TextOptions.TextRenderingMode="Auto"
              Background="{x:Null}"
              FontFamily="{DynamicResource MaterialDesignFont}"
-             Foreground="{x:Null}"
-             xmlns:i="http://schemas.microsoft.com/xaml/behaviors">
+             Foreground="{x:Null}">
     <Grid>
         <Grid Margin="10">
             <Grid.RowDefinitions>
@@ -33,34 +31,44 @@
                     AcceptsReturn="True"
                     TextWrapping="Wrap"
                     VerticalScrollBarVisibility="Disabled"
-                    materialDesign:HintAssist.Hint="Search"
-                    Margin="20 10" />
+                    materialDesign:HintAssist.Hint="Tìm món ăn"
+                    Margin="20 10"
+                    FontSize="16"
+                    Foreground="Black" />
                 <!--Filter-->
                 <ComboBox Height="50" Width="150"
-                          materialDesign:HintAssist.Hint="Filter"
                           VerticalAlignment="Top"
                           HorizontalAlignment="Center"
                           Margin="10"
                           Foreground="Black"
-                          Background="Transparent">
-                    <ComboBoxItem>
-                        <CheckBox>Giá tăng</CheckBox>
+                          Background="Transparent"
+                          FontSize="16"
+                          materialDesign:HintAssist.Hint="Giá"
+                          VerticalContentAlignment="Center">
+                    <ComboBoxItem Content="Giá giảm">
                     </ComboBoxItem>
-                    <ComboBoxItem>
-                        <CheckBox>Giá giảm</CheckBox>
-                    </ComboBoxItem>
-                    <ComboBoxItem>
-                        <CheckBox>Khuyến mãi</CheckBox>
+                    <ComboBoxItem Content="Giá tăng">
                     </ComboBoxItem>
                 </ComboBox>
             </StackPanel>
-            <!--item panel-->
+
             <ScrollViewer Grid.Row="1">
-                <WrapPanel>
-                    <TextBlock Foreground="Black">
-                        Đang chưa biét xài search với filter style như nào
-                    </TextBlock>
-                </WrapPanel>
+                <StackPanel>
+                    <StackPanel Margin="20 0">
+                        <!--itemcontrol có thuộc tính itemsource để binding-->
+                        <ItemsControl x:Name="ViewListProducts">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel></WrapPanel>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                        </ItemsControl>
+                    </StackPanel>
+                </StackPanel>
             </ScrollViewer>
         </Grid>
         <Rectangle

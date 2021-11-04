@@ -1,0 +1,138 @@
+﻿<UserControl x:Class="FoodOrderApp_Test.Views.UserControls.MenuUC_Test"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Height="769" Width="1049"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             Background="{x:Null}"
+             FontFamily="{DynamicResource MaterialDesignFont}"
+             Foreground="{x:Null}">
+    <Grid>
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal">
+                <!--Khung search-->
+                <TextBox
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Center"
+                    Height="50"
+                    Width="500"
+                    AcceptsReturn="True"
+                    TextWrapping="Wrap"
+                    VerticalScrollBarVisibility="Disabled"
+                    materialDesign:HintAssist.Hint="Tìm món ăn"
+                    Margin="20 10"
+                    FontSize="16"
+                    Foreground="Black" />
+                <!--Filter-->
+                <ComboBox Height="50" Width="150"
+                          VerticalAlignment="Top"
+                          HorizontalAlignment="Center"
+                          Margin="10"
+                          Foreground="Black"
+                          Background="Transparent"
+                          FontSize="16"
+                          materialDesign:HintAssist.Hint="Giá"
+                          VerticalContentAlignment="Center">
+                    <ComboBoxItem Content="Giá giảm">
+                    </ComboBoxItem>
+                    <ComboBoxItem Content="Giá tăng">
+                    </ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+
+            <ScrollViewer Grid.Row="1">
+                <!--itemcontrol có thuộc tính itemsource để binding-->
+                <ItemsControl x:Name="ViewListProducts" Margin="0 50 0 0">
+                    <!--item nó nằm trong cái grid này nè-->
+                    <Grid VerticalAlignment="Bottom">
+                        <Border Width="130"
+                                        Height="130"
+                                        Margin="0 -190 0 0"
+                                        CornerRadius="10"
+                                    BorderThickness="0,0,0,0"
+                                    Panel.ZIndex="100">
+                            <Border.Background>
+                                <ImageBrush ImageSource="food.jpg" />
+                            </Border.Background>
+                        </Border>
+                        <Border Width="180" Height="180" Background="White" CornerRadius="10" Margin="30 20">
+                            <StackPanel>
+                                <Grid Height="120" Margin="0 70 0 0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0">
+
+                                        <!--tên món ăn-->
+
+                                        <TextBlock
+                                            Margin="5 5 0 10"
+                                            Foreground="Black"
+                                            FontWeight="Bold"
+                                            FontSize="16"
+                                            Height="auto"
+                                            TextWrapping="Wrap"
+                                            VerticalAlignment="Center">
+                                            bánh mì nướng muối ớt tôm tôtm
+                                        </TextBlock>
+
+                                        <!--số tiền-->
+
+                                        <TextBlock
+                                            Margin="10 5"
+                                            Foreground="Black"
+                                            FontSize="14"
+                                            FontWeight="Medium"
+                                            Text="100.00$"
+                                            VerticalAlignment="Center">
+                                        </TextBlock>
+                                    </StackPanel>
+
+                                    <!--bấm thêm vào giỏ hàng-->
+
+                                    <ToggleButton
+                                        Padding="5 0"
+                                        Grid.Column="1"
+                                      Content="+"
+                                      Style="{StaticResource MaterialDesignActionLightToggleButton}"
+                                      IsChecked="False"
+                                      ToolTip="Thêm món ăn"
+                                        Width="30"
+                                        Height="30" />
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel></WrapPanel>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+            </ScrollViewer>
+        </Grid>
+        <Rectangle
+            Fill="LightGray"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            RadiusY="10"
+            RadiusX="10"
+            Panel.ZIndex="-2"
+            Effect="{StaticResource dropShadow}"
+            Margin="10">
+        </Rectangle>
+    </Grid>
+</UserControl>
