@@ -1,8 +1,13 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:FoodOrderApp_Test.Resources.XAML"
-                    xmlns:viewmodels="clr-namespace:FoodOrderApp_Test.ViewModels">
+                    xmlns:viewmodels="clr-namespace:FoodOrderApp_Test.ViewModels"
+                    xmlns:helperslocal="clr-namespace:FoodOrderApp_Test.Helpers"
+                    xmlns:mainlocal="clr-namespace:FoodOrderApp_Test">
     <viewmodels:LoginViewModel x:Key="LoginVM"></viewmodels:LoginViewModel>
     <viewmodels:MainViewmodel x:Key="MainVM"></viewmodels:MainViewmodel>
     <viewmodels:SignUpViewModel x:Key="SignUpVM"></viewmodels:SignUpViewModel>
+
+
+    
 </ResourceDictionary>

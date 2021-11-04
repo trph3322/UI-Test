@@ -66,6 +66,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CurrentAccount.cs" />
+    <Compile Include="Helpers\BooleanToVisibilityConverter.cs" />
     <Compile Include="Validations\TextBoxValidation.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="App.xaml.cs">
