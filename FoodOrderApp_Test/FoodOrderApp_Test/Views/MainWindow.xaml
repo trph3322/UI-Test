@@ -52,7 +52,7 @@
                     <TextBlock Text="Restaurant" FontSize="20" FontWeight="Bold" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 0 0 20"></TextBlock>
                 </Grid>
 
-                <Separator Margin="20 151" ></Separator>
+                <Separator Margin="20 151" BorderBrush="Black" Height="3" ></Separator>
                 
                 <Grid Grid.Row="1">
                     
@@ -306,14 +306,16 @@
 
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="70"></RowDefinition>
+                    <RowDefinition Height="90"></RowDefinition>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
                 <Border Grid.Row="0" CornerRadius="0 10 0 0" Background="White">
                     <uc:ControlBarUC></uc:ControlBarUC>
                 </Border>
 
-                <Border Grid.Row="1" CornerRadius="10" Background="#ECF0F1"></Border>
+                <Border Grid.Row="1" CornerRadius="10" Background="#FFF7F9F9">
+                    <uc:MenuUC_Test></uc:MenuUC_Test>
+                </Border>
             </Grid>
             
         </Grid>
