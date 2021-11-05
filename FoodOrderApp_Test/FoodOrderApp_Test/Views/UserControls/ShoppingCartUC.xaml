@@ -13,23 +13,76 @@
              TextOptions.TextRenderingMode="Auto"
              Background="{x:Null}"
              FontFamily="{DynamicResource MaterialDesignFont}"
-             Foreground="{x:Null}"
+             Foreground="Black"
              xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
     <Grid>
-        <Grid ShowGridLines="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="445*"/>
+            <RowDefinition Height="324*"/>
+        </Grid.RowDefinitions>
+        <Grid ShowGridLines="True" Margin="0,0,-0.2,-0.2" Grid.RowSpan="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="80"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="150"></RowDefinition>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="4*"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center">
+                <Grid ShowGridLines="true" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="2*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" FontSize="25" Padding="10 0" TextAlignment="Left" >item</TextBlock>
+                    <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" FontSize="25" Padding="10 0" TextAlignment="Left" >shipping</TextBlock>
+                    <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" FontSize="25" Padding="10 0" TextAlignment="Left" >address</TextBlock>
+                    <TextBlock Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" FontSize="25" Padding="10 0" TextAlignment="Right">gia</TextBlock>
+                    <TextBlock Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" FontSize="25" Padding="10 0" TextAlignment="Right"></TextBlock>
+                    <TextBlock Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" FontSize="25" Padding="10 0" TextAlignment="Right"></TextBlock>
+                    <Grid Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2">
+                        <Button
+                                Style="{StaticResource MaterialDesignRaisedButton}"
+                                Height="50"
+                                Width="200"
+                                materialDesign:ButtonAssist.CornerRadius="10"
+                                ToolTip="MaterialDesignRaisedButton with Round Corners"
+                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}">
+                            <TextBlock Text="Đặt hàng" FontSize="24" />
+                        </Button>
+                    </Grid>
+                </Grid>
+            </StackPanel>
+            <ScrollViewer VerticalScrollBarVisibility="Visible" Background="LightGray" Grid.Row="1" Grid.Column="0" Margin="60 10 10 60 ">
+
+            </ScrollViewer>
+            <!--<StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Center">
+                <Grid ShowGridLines="true">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25" Padding="10 0">Item</TextBlock>
+                    <TextBlock Grid.Row="0" Grid.Column="1" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25" Padding="10 0">Amount</TextBlock>
+                    <TextBlock Grid.Row="0" Grid.Column="2" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25" Padding="10 0">Price</TextBlock>
+                    <TextBlock Grid.Row="0" Grid.Column="3" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25" Padding="10 0">Total</TextBlock>
+                    
+                </Grid>
+            </StackPanel>-->
+            <!--<StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center">
                 <Grid ShowGridLines="true">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
@@ -54,7 +107,7 @@
                         </Button>
                     </Grid>
                 </Grid>
-            </StackPanel>
+            </StackPanel>-->
         </Grid>
         <Rectangle
             Fill="White"
@@ -64,7 +117,7 @@
             RadiusX="10"
             Panel.ZIndex="-2"
             Effect="{StaticResource dropShadow}"
-            Margin="10">
+            Margin="10,10,9.8,9.8" Grid.RowSpan="2">
         </Rectangle>
     </Grid>
 </UserControl>
