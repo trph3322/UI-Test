@@ -77,7 +77,7 @@
     <Compile Include="ViewModels\ControlBarViewModel.cs" />
     <Compile Include="ViewModels\ForgotPasswordViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
-    <Compile Include="ViewModels\MainViewmodel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\SignUpViewModel.cs" />
     <Compile Include="Views\FoodDetailWindow.xaml.cs">
       <DependentUpon>FoodDetailWindow.xaml</DependentUpon>

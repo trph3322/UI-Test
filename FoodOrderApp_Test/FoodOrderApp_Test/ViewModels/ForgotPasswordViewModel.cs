@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FoodOrderApp_Test.ViewModels
 {
-    class ForgotPasswordViewModel
+    class ForgotPasswordViewModel : BaseViewModel
     {
     }
 }

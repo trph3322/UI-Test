@@ -5,7 +5,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             Height="769" Width="1049"
+             Height="auto" Width="auto"
              TextElement.Foreground="{DynamicResource MaterialDesignBody}"
              TextElement.FontWeight="Regular"
              TextElement.FontSize="13"
@@ -15,7 +15,7 @@
              FontFamily="{DynamicResource MaterialDesignFont}"
              Foreground="{x:Null}">
     <Grid>
-        <Grid Margin="10">
+        <Grid Margin="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="100"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
@@ -52,35 +52,34 @@
                 </ComboBox>
             </StackPanel>
 
-            <ScrollViewer Grid.Row="1" Visibility="Visible">
+            <ScrollViewer Grid.Row="1">
                 <!--itemcontrol có thuộc tính itemsource để binding-->
-                <ItemsControl x:Name="ViewListProducts" Margin="0 50 0 0">
+                <ItemsControl x:Name="ViewListProducts">
                     <!--item nó nằm trong cái grid này nè-->
-                    <Grid VerticalAlignment="Bottom" Height="200" Width="200" Margin="20">
-                        <!--<Border Width="130"
+                    <Grid VerticalAlignment="Bottom" Height="310" Width="200" Margin="20">
+
+                        <StackPanel Margin="25 20 25 0">
+
+                            <Border Width="140"
                                         Height="130"
-                                        Margin="0 -190 0 0"
+                                        Margin="0 5 0 0"
                                         CornerRadius="10"
                                     BorderThickness="0,0,0,0"
-                                    Panel.ZIndex="100">
-                            <Border.Background>
-                                <ImageBrush ImageSource="/Resources/Images/food.jpg" />
-                            </Border.Background>
-                        </Border>-->
-
-                        <StackPanel Margin="30 60 30 0">
-
+                                    VerticalAlignment="Top">
+                                <Border.Background>
+                                    <ImageBrush ImageSource="/Resources/Images/food.jpg" />
+                                </Border.Background>
+                            </Border>
                             <!--tên món ăn-->
-
                             <TextBlock
-                                        Margin="5 5 0 10"
+                                        Margin="5 10 0 10"
                                         Foreground="Black"
                                         FontWeight="Bold"
                                         FontSize="16"
                                         Height="auto"
                                         TextWrapping="Wrap"
                                         VerticalAlignment="Center">
-                                        bánh mì nướng muối ớt tôm tôtm
+                                        bánh mì nướng muối ớt tôm tôtmh
                             </TextBlock>
 
                             <!--số tiền-->
@@ -97,6 +96,7 @@
                             <!--bấm thêm vào giỏ hàng-->
 
                             <ToggleButton
+                                Margin="0 10 0 0"
                                     Padding="5 0"
                                     Grid.Column="1"
                                     Content="+"
@@ -727,7 +727,6 @@
                         Margin="10">
                         </Rectangle>
                     </Grid>
-
 
                     <Grid VerticalAlignment="Bottom" Height="200" Width="200" Margin="20">
                         <!--<Border Width="130"
@@ -803,7 +802,9 @@
                         </Border>
                         <Border Width="180" Height="180" Background="White" CornerRadius="10" Margin="30 20">
                             <StackPanel Margin="0 60 0 0">
-                                --><!--tên món ăn--><!--
+                                -->
+                    <!--tên món ăn-->
+                    <!--
                                 <TextBlock
                                             Margin="5 5 0 10"
                                             Foreground="Black"
@@ -814,7 +815,9 @@
                                             VerticalAlignment="Center">
                                             bánh mì nướng muối ớt tôm tôtm
                                 </TextBlock>
-                                --><!--số tiền--><!--
+                                -->
+                    <!--số tiền-->
+                    <!--
                                 <StackPanel Orientation="Horizontal" Height="20">
                                     <TextBlock
                                                 Margin="10 5"
@@ -839,7 +842,9 @@
                                     </Border>
                                 </StackPanel>
 
-                                --><!--bấm thêm vào giỏ hàng--><!--
+                                -->
+                    <!--bấm thêm vào giỏ hàng-->
+                    <!--
 
                                 <ToggleButton
                                     Margin="0 10"
@@ -861,8 +866,6 @@
                     </ItemsControl.ItemsPanel>
                 </ItemsControl>
             </ScrollViewer>
-            
         </Grid>
-        
     </Grid>
 </UserControl>

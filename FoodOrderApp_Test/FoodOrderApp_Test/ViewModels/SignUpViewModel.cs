@@ -11,7 +11,7 @@ using FoodOrderApp_Test.Validations;
 
 namespace FoodOrderApp_Test.ViewModels
 {
-    internal class SignUpViewModel : MainViewmodel
+    internal class SignUpViewModel : BaseViewModel
     {
         public ICommand SignUpCommand { get; set; }
         public ICommand SwichTabCommand { get; set; }
